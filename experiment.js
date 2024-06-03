@@ -1,5 +1,4 @@
-import { jsPsych } from 'jspsych';
-import Chart from 'chart.js';
+
 // DEFINE GLOBAL VARIABLES
 let timeline = [];
 
@@ -161,6 +160,11 @@ const instructionsSelf = {
     </p>`,
 
     `<p style="text-align: left;">
+    We will ask you about 5 different values.
+    </p>`,
+
+
+    `<p style="text-align: left;">
     Your task will begin on the next page. 
     </p>`
 
@@ -187,6 +191,11 @@ const instructionsOther = {
      </p>`,
 
      `<p style="text-align: left;">
+     We will ask you about 5 different values.
+     </p>`,
+ 
+
+     `<p style="text-align: left;">
      Your task will begin on the next page. 
      </p>` 
  
@@ -196,105 +205,133 @@ const instructionsOther = {
 
 
 // TASK 
+let proportions = {};
 
 const pieChartTrial = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
-    // ...
+  <div style="text-align: center; margin-bottom: 20px;">
+    <p>
+      <b>How much do you personally value each of the following:</b></p>
+      <p>As a reminder: Aesthetic values are those related to art. Moral values are those related to right and wrong. The others are obvious. </p>
+    </p>
+  </div>
 
-        <script>
-          var ctx = document.getElementById('pieChart').getContext('2d');
-          var pieChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-              labels: ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'],
-              datasets: [{
-                data: [20, 20, 20, 20, 20],
-                backgroundColor: ['red', 'blue', 'green', 'yellow', 'orange']
-              }]
-            },
-            options: {
-              responsive: true,
-      <canvas id="pieChart"></canvas>
-    </div>
-    <div id="inputContainer">
-      <label for="cat1">Category 1:</label>
-      <input type="number" id="cat1" value="20" min="0" max="100"><br>
-      <label for="cat2">Category 2:</label>
-      <input type="number" id="cat2" value="20" min="0" max="100"><br>
-      <label for="cat3">Category 3:</label>
-      <input type="number" id="cat3" value="20" min="0" max="100"><br>
-      <label for="cat4">Category 4:</label>
-      <input type="number" id="cat4" value="20" min="0" max="100"><br>
-      <label for="cat5">Category 5:</label>
-      <input type="number" id="cat5" value="20" min="0" max="100"><br>
-    </div>
-    <script>
-      var ctx = document.getElementById('pieChart').getContext('2d');
-      var pieChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-          labels: ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'],
-          datasets: [{
-            data: [20, 20, 20, 20, 20],
-            backgroundColor: ['red', 'blue', 'green', 'yellow', 'orange']
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false
-        }
-      });
-
-      document.querySelectorAll('#inputContainer input').forEach(input => {
-        input.addEventListener('input', () => {
-          var data = [
-            parseInt(document.getElementById('cat1').value),
-            parseInt(document.getElementById('cat2').value),
-            parseInt(document.getElementById('cat3').value),
-            parseInt(document.getElementById('cat4').value),
-            parseInt(document.getElementById('cat5').value)
-          ];
-          pieChart.data.datasets[0].data = data;
-          pieChart.update();
-        });
-      });
-    </script>
+  <div id="pieChartContainer" style="width: 400px; height: 400px; margin: 0 auto;">
+    <canvas id="pieChart"></canvas>
+  </div>
+  <div id="inputContainer" style="width: 400px; margin: 0 auto; text-align: left;">
+    <label for="cat1">Aesthetic:</label>
+    <input type="number" id="cat1" value="20" min="0" max="100"><br>
+    <label for="cat2">Moral:</label>
+    <input type="number" id="cat2" value="20" min="0" max="100"><br>
+    <label for="cat3">Money:</label>
+    <input type="number" id="cat3" value="20" min="0" max="100"><br>
+    <label for="cat4">Food:</label>
+    <input type="number" id="cat4" value="20" min="0" max="100"><br>
+    <label for="cat5">Movies:</label>
+    <input type="number" id="cat5" value="20" min="0" max="100"><br>
+  </div>
+  <p></p>
+  <p id="error-message" style="color: red;"></p>
+  <p>Press the space bar when you are done adjusting the proportions to continue.</p>
   `,
+  choices: [' '],
+  on_load: function() {
+    var ctx = document.getElementById('pieChart').getContext('2d');
+    var pieChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Aesthetic', 'Moral', 'Political', 'Food', 'Movies'],
+        datasets: [{
+          data: [20, 20, 20, 20, 20],
+          backgroundColor: ['red', 'blue', 'green', 'yellow', 'orange']
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+
+    function updateChart() {
+      var data = [
+        parseInt(document.getElementById('cat1').value),
+        parseInt(document.getElementById('cat2').value),
+        parseInt(document.getElementById('cat3').value),
+        parseInt(document.getElementById('cat4').value),
+        parseInt(document.getElementById('cat5').value)
+      ];
+
+      var total = data.reduce((a, b) => a + b, 0);
+
+      if (total === 100) {
+        pieChart.data.datasets[0].data = data;
+        pieChart.update();
+        document.getElementById('error-message').innerText = '';
+        // Store the values in the global variable
+        proportions = {
+          cat1: data[0],
+          cat2: data[1],
+          cat3: data[2],
+          cat4: data[3],
+          cat5: data[4]
+        };
+      } else {
+        document.getElementById('error-message').innerText = 'Total proportion must be exactly 100.';
+      }
+    }
+
+    document.querySelectorAll('#inputContainer input').forEach(input => {
+      input.addEventListener('input', updateChart);
+    });
+  },
   on_finish: function(data) {
-    var proportions = {
-      cat1: document.getElementById('cat1').value,
-      cat2: document.getElementById('cat2').value,
-      cat3: document.getElementById('cat3').value,
-      cat4: document.getElementById('cat4').value,
-      cat5: document.getElementById('cat5').value
-    };
     jsPsych.data.addDataToLastTrial({ proportions: proportions });
   }
 };
 
 
-///////////////////////////////////////////// self /////////////////////////////////////////////
+// Add the pie chart trial to the timeline based on the condition
 if (pluralCondition === 'self') {
-
-  // Instructions
-  timeline.push(
-    instructionsSelf,
-    pieChartTrial
-    );
-
+  timeline.push(instructionsSelf, pieChartTrial);
+} else if (pluralCondition === 'other') {
+  timeline.push(instructionsOther, pieChartTrial);
 }
 
-///////////////////////////////////////////// other /////////////////////////////////////////////
-else if (pluralCondition === 'other') {
-  
-  // Instructions
-  timeline.push(
-    instructionsOther,
-    pieChartTrial
+///////////////////// Add follow up questions 
 
-  );
+//open ended
+var explain = {
+  type: jsPsychSurveyText,
+  questions: [
+    {prompt: 'Why did you complete the pie chart in the way you did?', name: 'pieexplain', rows: 5}  ]
+}
+
+timeline.push(explain);
+
+// other questions
+var whichone = {
+  type: jsPsychSurveyMultiChoice,
+  questions: [
+    {
+      prompt: "Which of the following values do you think is most neglected?", 
+      name: 'VegetablesLike', 
+      options: ['Aesthetic', 'Moral', 'Money', 'Food', 'Movies'], 
+      required: true,
+      horizontal: true
+    }, 
+    {
+      prompt: "Which of the following do you like the least?", 
+      name: 'FruitDislike', 
+      options: ['Aesthetic', 'Moral', 'Money', 'Food', 'Movies'], 
+      required: true,
+      horizontal: true
+    }
+  ],
 };
+
+timeline.push(whichone);
 
 /////////////////////////////////////////////// DEMOGRAPHICS ///////////////////////////////////////////////
 const demographicsQuestions = {
