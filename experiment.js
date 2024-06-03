@@ -179,7 +179,7 @@ const instructionsSelf = {
     <p style="text-align: left;"> In the example below, all of the pursuits are weighted 
     exactly equally.</p> 
     </p>
-    <img src="images/piegroups.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 40%;">`,
+    <img src="images/piegroups.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 30%;">`,
 
     `<p style="text-align: left;">
     You will edit the circle so that it matches what you think a person should pursue. You may not see all the things you value, 
@@ -238,7 +238,7 @@ const instructionsOther = {
     <p style="text-align: left;"> In the example below, all of the pursuits are weighted 
     exactly equally.</p> 
     </p>
-    <img src="images/piegroups.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 40%;">`,
+    <img src="images/piegroups.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 30%;">`,
 
     `<p style="text-align: left;">
     You will edit the circle so that it matches what you think people in society should pursue. You may not see all the things you value, 
