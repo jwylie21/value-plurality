@@ -147,20 +147,47 @@ const instructionsSelf = {
   pages: [
     `<h2><strong>Instructions</strong></h2>
      <p style="text-align: left;">
-       Welcome to the experiment! In this study, we will ask you about the kinds of things
-       you should value in life. 
+       Welcome to the experiment! In this study, we will ask you about the kinds of pursuits
+       people value in life. 
      </p>`,
 
     `<p style="text-align: left;">
-      Your task is to adjust the amount of each of the values we show you in a pie chart. There are no right or wrong answers, we are interested in your gut response. 
+      Imagine this circle represents all the time a single person has:
+     </p>
+     <img src="images/piealone.jpg" style="display: block; margin: 0 auto; width: 50%;">
+     `,
+
+     `<p style="text-align: left;">
+     We want you to think about creating an ideal life. We want to know how much time you think 
+     a person should dedicate in their life to different pursuits. 
+     </p>
+
+     <p style="text-align: left;">
+     These pursuits include:
+     <ul style="text-align: left;">
+       <li>Knowledge (pursuing truth, science, or technology)</li>
+       <li>Morality (helping those in need, caring for others)</li>
+       <li>Politics (pursuing social order and organization)</li>
+       <li>Pleasures (pursuing enjoyment, play, and leisure in life)</li>
+       <li>Self-expression (making art, music, perfecting a sport)</li>
+     </ul>
+     </p>`,
+
+    `<p style="text-align: left;">
+    You will see a pie chart like the one below and be asked to edit it so that it matches how much of their time you 
+    think a person should dedicate to each of the different pursuits. 
+    <p style="text-align: left;"> In the example below, all of the pursuits are weighted 
+    exactly equally.</p> 
+    </p>
+    <img src="images/piegroups.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 40%;">`,
+
+    `<p style="text-align: left;">
+    You will edit the circle so that it matches what you think a person should pursue. You may not see all the things you value, 
+    or see some that you value very little. That is okay. Your task is to adjust the amounts of the pursuits you are shown. 
     </p>`,
 
     `<p style="text-align: left;">
-    You may not see all the things you value, or see some that you value very little. That is okay. Your task is to adjust the amounts of the values you are shown. 
-    </p>`,
-
-    `<p style="text-align: left;">
-    We will ask you about 5 different values.
+    You will start with a pie chart where all of the values are evenly broken up. The values of the pie chart must equal exactly 100. 
     </p>`,
 
 
@@ -174,35 +201,62 @@ const instructionsSelf = {
 
 // Society/Other people INSTRUCTIONS //
 const instructionsOther = {
-    type: jsPsychInstructions,
-    pages: [
-      `<h2><strong>Instructions</strong></h2>
-      <p style="text-align: left;">
-        Welcome to the experiment! In this study, we will ask you about the kinds of things
-        society should value in life. 
-      </p>`,
- 
-     `<p style="text-align: left;">
-       Your task is to adjust the amount of each of the values we show you in a pie chart. There are no right or wrong answers, we are interested in your gut response. 
-     </p>`,
- 
-     `<p style="text-align: left;">
-     You may not see all the things you think society should value, or see some that you think society should value very little. That is okay. Your task is to adjust the amounts of the values you are shown. 
+  type: jsPsychInstructions,
+  pages: [
+    `<h2><strong>Instructions</strong></h2>
+     <p style="text-align: left;">
+       Welcome to the experiment! In this study, we will ask you about the kinds of pursuits
+       people value in life. 
      </p>`,
 
+    `<p style="text-align: left;">
+      Imagine this circle represents all the time people in a society have:
+     </p>
+     <img src="images/piealone.jpg" style="display: block; margin: 0 auto; width: 50%;">
+     `,
+
      `<p style="text-align: left;">
-     We will ask you about 5 different values.
+     We want you to think about creating an ideal society. We want to know how much time people in that 
+     society should dedicate to different pursuits. 
+     </p>
+
+   
+     <p style="text-align: left;">
+     These pursuits include:
+     <ul style="text-align: left;">
+     <li>Knowledge (pursuing truth, science, or technology)</li>
+     <li>Morality (helping those in need, caring for others)</li>
+     <li>Politics (pursuing social order and organization)</li>
+     <li>Pleasures (pursuing enjoyment, play, and leisure in life)</li>
+     <li>Self-expression (making art, music, perfecting a sport)</li>
+     </ul>
      </p>`,
- 
 
-     `<p style="text-align: left;">
-     Your task will begin on the next page. 
-     </p>` 
- 
-    ],
-    show_clickable_nav: true,
-  };
+    `<p style="text-align: left;">
+    You will see a pie chart like the one below and be asked to edit it so that it matches how much of their time you 
+    think people in society should dedicate to each of the different pursuits. 
+    <p style="text-align: left;"> In the example below, all of the pursuits are weighted 
+    exactly equally.</p> 
+    </p>
+    <img src="images/piegroups.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 40%;">`,
 
+    `<p style="text-align: left;">
+    You will edit the circle so that it matches what you think people in society should pursue. You may not see all the things you value, 
+    or see some that you value very little. That is okay. Your task is to adjust the amounts of the pursuits you are shown. 
+    </p>`,
+
+    `<p style="text-align: left;">
+    You will start with a pie chart where all of the values are evenly broken up. The values of the pie chart must equal exactly 100. 
+    </p>`,
+
+
+    `<p style="text-align: left;">
+    Your task will begin on the next page. 
+    </p>`
+
+  ],
+  show_clickable_nav: true,
+};
 
 // TASK 
 let proportions = {};
@@ -212,8 +266,10 @@ const pieChartTrial = {
   stimulus: `
   <div style="text-align: center; margin-bottom: 20px;">
     <p>
-      <b>How much do you personally value each of the following:</b></p>
-      <p>As a reminder: Aesthetic values are those related to art. Moral values are those related to right and wrong. The others are obvious. </p>
+      <b>Adjust the amount of each of the following pursuits:</b></p>
+      <p>Knowledge relates to pursuing truth, science or technology, Moral relates to helping those in need, caring for others,
+      Politics relates to pursuing social order and organization, Pleasures relates to pursuing enjoyment, play, and leisure in life,
+      and Self-expression relates to making art, perfecting a sport. </p>
     </p>
   </div>
 
@@ -221,20 +277,21 @@ const pieChartTrial = {
     <canvas id="pieChart"></canvas>
   </div>
   <div id="inputContainer" style="width: 400px; margin: 0 auto; text-align: left;">
-    <label for="cat1">Aesthetic:</label>
+    <label for="cat1">Self-expression:</label>
     <input type="number" id="cat1" value="20" min="0" max="100"><br>
-    <label for="cat2">Moral:</label>
+    <label for="cat2">Knowledge:</label>
     <input type="number" id="cat2" value="20" min="0" max="100"><br>
-    <label for="cat3">Money:</label>
+    <label for="cat3">Morality:</label>
     <input type="number" id="cat3" value="20" min="0" max="100"><br>
-    <label for="cat4">Food:</label>
+    <label for="cat4">Politics:</label>
     <input type="number" id="cat4" value="20" min="0" max="100"><br>
-    <label for="cat5">Movies:</label>
+    <label for="cat5">Pleasures:</label>
     <input type="number" id="cat5" value="20" min="0" max="100"><br>
   </div>
   <p></p>
   <p id="error-message" style="color: red;"></p>
-  <p>Press the space bar when you are done adjusting the proportions to continue.</p>
+  <p>The piechart will update when the values equal 100. </p>
+  <p>Press the <b>space bar</b> when you are done adjusting the proportions to continue.</p>
   `,
   choices: [' '],
   on_load: function() {
@@ -242,7 +299,7 @@ const pieChartTrial = {
     var pieChart = new Chart(ctx, {
       type: 'pie',
       data: {
-        labels: ['Aesthetic', 'Moral', 'Political', 'Food', 'Movies'],
+        labels: ['Self-expression', 'Knowledge', 'Morality', 'Politics', 'Pleasures'],
         datasets: [{
           data: [20, 20, 20, 20, 20],
           backgroundColor: ['red', 'blue', 'green', 'yellow', 'orange']
@@ -315,16 +372,32 @@ var whichone = {
   type: jsPsychSurveyMultiChoice,
   questions: [
     {
-      prompt: "Which of the following values do you think is most neglected?", 
-      name: 'VegetablesLike', 
-      options: ['Aesthetic', 'Moral', 'Money', 'Food', 'Movies'], 
+      prompt: "If you had to choose, which of the pursuits do you think is most important to being human?", 
+      name: 'human', 
+      options: ['Knowledge',  'Morality', 'Pleasures', 'Politics', 'Self-expression' ], 
       required: true,
       horizontal: true
     }, 
     {
-      prompt: "Which of the following do you like the least?", 
-      name: 'FruitDislike', 
-      options: ['Aesthetic', 'Moral', 'Money', 'Food', 'Movies'], 
+      prompt: "In your life now, which of the pursuits would you say YOU most pursue in your life?", 
+      name: 'youvalue', 
+      options: ['Knowledge',  'Morality', 'Pleasures', 'Politics', 'Self-expression' ], 
+      required: true,
+      horizontal: true
+    },
+
+    {
+      prompt: "Which of the pursuits should YOU most pursue in your life?", 
+      name: 'shouldvalue', 
+      options: ['Knowledge',  'Morality', 'Pleasures', 'Politics', 'Self-expression' ], 
+      required: true,
+      horizontal: true
+    },
+
+    {
+      prompt: "Which of the pursuits should OTHERS spend most time pursuing in their lives?", 
+      name: 'othersshould', 
+      options: ['Knowledge',  'Morality', 'Pleasures', 'Politics', 'Self-expression' ], 
       required: true,
       horizontal: true
     }
@@ -332,6 +405,29 @@ var whichone = {
 };
 
 timeline.push(whichone);
+
+var likert_scale = [
+  'Not at all important', 
+  'Slightly important', 
+  'Moderately important', 
+  'Very important', 
+  'Extremely important'
+];
+
+var ourmfq = {
+  type: jsPsychSurveyLikert,
+  questions: [
+    {prompt: "Knowledge", name: 'Knowledge', labels: likert_scale},
+    {prompt: "Morality", name: 'Morality', labels: likert_scale},
+    {prompt: "Pleasures", name: 'Pleasures', labels: likert_scale},
+    {prompt: "Politics", name: 'Politics', labels: likert_scale},
+    {prompt: "Self-expression", name: 'Self-expression', labels: likert_scale},
+  ],
+  preamble:" In this section, please rate each item on how important it would be to you when trying to decide if a pursuit was valuable or not.",
+  randomize_question_order: true
+};
+
+timeline.push(ourmfq);
 
 /////////////////////////////////////////////// DEMOGRAPHICS ///////////////////////////////////////////////
 const demographicsQuestions = {
@@ -896,7 +992,7 @@ timeline.push(exitFullscreen);
 const save_data = {
    type: jsPsychPipe,
    action: "save",
-   experiment_id: "h8BPIqindPID", //updated as of april 22
+   experiment_id: "9VDNqbtQWyZk", //updated as of june 3
    filename: filename,
    data_string: () => jsPsych.data.get().csv(),
    on_finish: function (data) {
