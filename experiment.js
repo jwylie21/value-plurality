@@ -147,43 +147,49 @@ const instructionsSelf = {
   pages: [
     `<h2><strong>Instructions</strong></h2>
      <p style="text-align: left;">
-       Welcome to the experiment! In this study, we will ask you about the kinds of pursuits
-       people value in life. 
+       Welcome to the experiment! In this study, we will ask you about the kinds of things people can do with their lives. 
      </p>`,
 
     `<p style="text-align: left;">
-      Imagine this circle represents all the time a single person has:
+      Imagine this circle represents all the time a single person has over the course of their life:
      </p>
      <img src="images/piealone.jpg" style="display: block; margin: 0 auto; width: 50%;">
      `,
 
      `<p style="text-align: left;">
-     We want you to think about creating an ideal life. We want to know how much time you think 
-     a person should dedicate in their life to different pursuits. 
+     We want you to think about creating an ideal life by partitioning up the circle below: 
+     </p>
+     
+     <img src="images/piealone.jpg" style="display: block; margin: 0 auto; width: 50%;">
+
+     <p style="text-align: left;">
+     This circle represents the amount of a person's life they dedicate to different pursuits. Your task is to decide <b>how much of a person's life</b> they should dedicate to different pursuits. 
      </p>
 
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-       <li>Knowledge (pursuing truth, science, or technology)</li>
-       <li>Morality (helping those in need, caring for others)</li>
-       <li>Politics (pursuing social order and organization)</li>
-       <li>Pleasures (pursuing enjoyment, play, and leisure in life)</li>
-       <li>Self-expression (making art, music, perfecting a sport)</li>
+       <li><b>Knowledge</b> (pursuing truth, science, or technology)</li>
+       <li><b>Morality</b> (helping those in need, caring for others, practicing religion)</li>
+       <li><b>Politics</b> (pursuing social order and organization)</li>
+       <li><b>Pleasures</b> (pursuing enjoyment, play, and leisure in life)</li>
+       <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
      </ul>
      </p>`,
 
     `<p style="text-align: left;">
-    You will see a pie chart like the one below and be asked to edit it so that it matches how much of their time you 
-    think a person should dedicate to each of the different pursuits. 
+    You will see a pie chart like the one below and be asked to edit it so that it matches how much of a person's life you think is ideal for them to dedicate to each of the different pursuits. 
     <p style="text-align: left;"> In the example below, all of the pursuits are weighted 
     exactly equally.</p> 
     </p>
     <img src="images/piegroups.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 30%;">`,
 
     `<p style="text-align: left;">
-    You will edit the circle so that it matches what you think a person should pursue. You may not see all the things you value, 
-    or see some that you value very little. That is okay. Your task is to adjust the amounts of the pursuits you are shown. 
+    Now it is time to edit the circle so that it matches what you think a person should pursue. You may not see all the things you value, 
+    or see some that you value very little. That is okay.  
+    </p>
+    
+    <p style="text-align: left;">Your task is to adjust the pursuits you are shown to match YOUR ideal. 
     </p>`,
 
     `<p style="text-align: left;">
@@ -205,44 +211,54 @@ const instructionsOther = {
   pages: [
     `<h2><strong>Instructions</strong></h2>
      <p style="text-align: left;">
-       Welcome to the experiment! In this study, we will ask you about the kinds of pursuits
-       people value in life. 
+      Welcome to the experiment! In this study, we will ask you about the kinds of things people can do with their lives. 
      </p>`,
 
     `<p style="text-align: left;">
-      Imagine this circle represents all the time people in a society have:
+     Imagine this circle represents all the time people in a society have over the course of their life:
+
      </p>
      <img src="images/piealone.jpg" style="display: block; margin: 0 auto; width: 50%;">
      `,
 
      `<p style="text-align: left;">
-     We want you to think about creating an ideal society. We want to know how much time people in that 
-     society should dedicate to different pursuits. 
+     We want you to think about creating an ideal society by partitioning up the circle below: 
+     </p>
+     
+     <img src="images/piealone.jpg" style="display: block; margin: 0 auto; width: 50%;">
+     
+     <p style="text-align: left;">
+     In that society, its possible that some people dedicate themselves to some pursuits, while others dedicate themselves to other pursuits. 
+     We want to know how you think people in an ideal society should divide up these pursuits. 
      </p>
 
-   
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-     <li>Knowledge (pursuing truth, science, or technology)</li>
-     <li>Morality (helping those in need, caring for others)</li>
-     <li>Politics (pursuing social order and organization)</li>
-     <li>Pleasures (pursuing enjoyment, play, and leisure in life)</li>
-     <li>Self-expression (making art, music, perfecting a sport)</li>
+     <li><b>Knowledge</b> (pursuing truth, science, or technology)</li>
+     <li><b>Morality</b> (helping those in need, caring for others, practicing religion)</li>
+     <li><b>Politics</b> (pursuing social order and organization)</li>
+     <li><b>Pleasures</b> (pursuing enjoyment, play, and leisure in life)</li>
+     <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
      </ul>
      </p>`,
 
     `<p style="text-align: left;">
-    You will see a pie chart like the one below and be asked to edit it so that it matches how much of their time you 
-    think people in society should dedicate to each of the different pursuits. 
+    You will see a pie chart like the one below and be asked to edit it so that it matches how you think people in an ideal 
+    society should divide up these pursuits. 
+    </p>
     <p style="text-align: left;"> In the example below, all of the pursuits are weighted 
     exactly equally.</p> 
-    </p>
+ 
     <img src="images/piegroups.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 30%;">`,
 
     `<p style="text-align: left;">
-    You will edit the circle so that it matches what you think people in society should pursue. You may not see all the things you value, 
-    or see some that you value very little. That is okay. Your task is to adjust the amounts of the pursuits you are shown. 
+    Now it is time to edit the circle so that it matches what you think people in an ideal society should pursue. You may not see all the things you value, 
+    or see some that you value very little. That is okay.    
+    </p>
+
+    <p style="text-align: left;">Your task is to adjust the pursuits you are shown to match YOUR ideal society. 
+
     </p>`,
 
     `<p style="text-align: left;">
@@ -383,7 +399,7 @@ var whichone = {
       name: 'youvalue', 
       options: ['Knowledge',  'Morality', 'Pleasures', 'Politics', 'Self-expression' ], 
       required: true,
-      horizontal: true
+      horizontal: true,
     },
 
     {
@@ -397,7 +413,7 @@ var whichone = {
     {
       prompt: "Which of the pursuits should OTHERS spend most time pursuing in their lives?", 
       name: 'othersshould', 
-      options: ['Knowledge',  'Morality', 'Pleasures', 'Politics', 'Self-expression' ], 
+      options: ['Self-expression', 'Politics', 'Pleasures', 'Morality', 'Knowledge'], 
       required: true,
       horizontal: true
     }
