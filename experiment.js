@@ -293,7 +293,14 @@ const instructionsOther = {
 };
 
 // TASK 
-let proportions = {};
+// TASK 
+let proportions = {
+  cat1: 20,
+  cat2: 20,
+  cat3: 20,
+  cat4: 20,
+  cat5: 20
+};
 
 const pieChartTrial = {
   type: jsPsychHtmlKeyboardResponse,
