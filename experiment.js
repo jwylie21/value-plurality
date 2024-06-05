@@ -44,6 +44,24 @@ const politicalResponses = [
   "7 (Extremely conservative)",
 ];
 
+var likert_scale = [
+  'Not at all important', 
+  'Slightly important', 
+  'Moderately important', 
+  'Very important', 
+  'Extremely important'
+];
+
+var disagree_scale = [
+  '1 = Strongly disagree', 
+  '2', 
+  '3', 
+  '4', 
+  '5',
+  '6',
+  '7 = Strongly agree'
+];
+
 // ENTER FULLSCREEN //
 const enterFullscreen = {
   type: jsPsychFullscreen,
@@ -178,7 +196,7 @@ const instructionsSelf = {
      </p>`,
 
     `<p style="text-align: left;">
-    You will see a pie chart like the one below and be asked to edit it so that it matches how much of a person's life you think is ideal for them to dedicate to each of the different pursuits. 
+    You will see a pie chart like the one below and be asked to edit it so that it matches how you think a person should ideally divide up these pursuits in their life. 
     <p style="text-align: left;"> In the example below, all of the pursuits are weighted 
     exactly equally.</p> 
     </p>
@@ -293,15 +311,15 @@ const pieChartTrial = {
     <canvas id="pieChart"></canvas>
   </div>
   <div id="inputContainer" style="width: 400px; margin: 0 auto; text-align: left;">
-    <label for="cat1">Self-expression:</label>
+    <label for="cat1">Knowledge (pursuing truth, science, or technology):</label>
     <input type="number" id="cat1" value="20" min="0" max="100"><br>
-    <label for="cat2">Knowledge:</label>
+    <label for="cat2">Morality (helping those in need, caring for others, practicing religion):</label>
     <input type="number" id="cat2" value="20" min="0" max="100"><br>
-    <label for="cat3">Morality:</label>
+    <label for="cat3">Pleasures (pursuing enjoyment, play, and leisure in life):</label>
     <input type="number" id="cat3" value="20" min="0" max="100"><br>
-    <label for="cat4">Politics:</label>
+    <label for="cat4">Politics (pursuing social order and organization):</label>
     <input type="number" id="cat4" value="20" min="0" max="100"><br>
-    <label for="cat5">Pleasures:</label>
+    <label for="cat5">Self-expression (culture, making art, music, perfecting a sport):</label>
     <input type="number" id="cat5" value="20" min="0" max="100"><br>
   </div>
   <p></p>
@@ -315,7 +333,7 @@ const pieChartTrial = {
     var pieChart = new Chart(ctx, {
       type: 'pie',
       data: {
-        labels: ['Self-expression', 'Knowledge', 'Morality', 'Politics', 'Pleasures'],
+        labels: ['Knowledge', 'Morality', 'Pleasures', 'Politics', 'Self-expression',],
         datasets: [{
           data: [20, 20, 20, 20, 20],
           backgroundColor: ['red', 'blue', 'green', 'yellow', 'orange']
@@ -422,28 +440,36 @@ var whichone = {
 
 timeline.push(whichone);
 
-var likert_scale = [
-  'Not at all important', 
-  'Slightly important', 
-  'Moderately important', 
-  'Very important', 
-  'Extremely important'
-];
-
 var ourmfq = {
   type: jsPsychSurveyLikert,
   questions: [
-    {prompt: "Knowledge", name: 'Knowledge', labels: likert_scale},
-    {prompt: "Morality", name: 'Morality', labels: likert_scale},
-    {prompt: "Pleasures", name: 'Pleasures', labels: likert_scale},
-    {prompt: "Politics", name: 'Politics', labels: likert_scale},
-    {prompt: "Self-expression", name: 'Self-expression', labels: likert_scale},
+    {prompt: "Knowledge", name: 'Knowledge1', labels: likert_scale},
+    {prompt: "Morality", name: 'Morality1', labels: likert_scale},
+    {prompt: "Pleasures", name: 'Pleasures1', labels: likert_scale},
+    {prompt: "Politics", name: 'Politics1', labels: likert_scale},
+    {prompt: "Self-expression", name: 'Self-expression1', labels: likert_scale},
   ],
   preamble:" In this section, please rate each item on how important it would be to you when trying to decide if a pursuit was valuable or not.",
   randomize_question_order: true
 };
 
 timeline.push(ourmfq);
+
+var fallapart = {
+  type: jsPsychSurveyLikert,
+  questions: [
+    {prompt: "If too many people pursue <b>knowledge</b> society will fall apart", name: 'Knowledge2', labels: disagree_scale},
+    {prompt: "If too many people pursue <b>morality<b> society will fall apart", name: 'Morality2', labels: disagree_scale},
+    {prompt: "If too many people pursue <b>pleasures<b> society will fall apart", name: 'Pleasures2', labels: disagree_scale},
+    {prompt: "If too many people pursue <b>politics<b> society will fall apart", name: 'Politics2', labels: disagree_scale},
+    {prompt: "If too many people pursue <b>self-expression<b> society will fall apart", name: 'Self-expression2', labels: disagree_scale},
+  ],
+  preamble:"For each of the following, please rate how much you agree or disagree with the statement",
+  randomize_question_order: true
+};
+
+timeline.push(fallapart);
+
 
 /////////////////////////////////////////////// DEMOGRAPHICS ///////////////////////////////////////////////
 const demographicsQuestions = {
