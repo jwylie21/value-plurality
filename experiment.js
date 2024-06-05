@@ -406,7 +406,7 @@ if (pluralCondition === 'self') {
 var explain = {
   type: jsPsychSurveyText,
   questions: [
-    {prompt: 'Why did you complete the pie chart in the way you did?', name: 'pieexplain', rows: 5}  ]
+    {prompt: 'Why did you complete the pie chart in the way you did? Are there any pursuits you think should have been included?', name: 'pieexplain', rows: 5}  ]
 }
 
 timeline.push(explain);
