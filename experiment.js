@@ -94,7 +94,7 @@ const consentForm = {
             If you agree to participate, we will ask you to: (1) view a series of images, pictures, film clips, stories, 
             newspaper articles, or write about a time from your past; (2) complete a cognitive task in which you will 
             view a series of stimuli for a short period of time, recall or categorize them, sort pictures and words, 
-            visually search a display of letters, word/letter recognition task, or solve puzzles; 
+            visually search a display of letters, a word/letter recognition task, or solve puzzles; 
             or (3) complete various personality, individual difference, and demographic questionnaires. In some cases, 
             you will skip the first step and simply begin the cognitive task.
             
@@ -104,7 +104,7 @@ const consentForm = {
             Participants do not receive compensation if they withdraw prior to completion 
             of the experiment. We do not anticipate any possible risks. 
             However, we will be presenting you with material that has emotional 
-            qualities that may induce discomfort viewing such material.
+            qualities that may induce discomfort when viewing such material.
 
             </p>
             <p style="text-align: left;">
@@ -509,14 +509,7 @@ const demographicsQuestions = {
               name="race-ethnicity-indigenous" 
               value="Indigenous American or Alaskan Native" 
               class="demographics-race-ethnicity incomplete"
-              oninput="
-                let demographicsRaceEthnicity = document.querySelectorAll(
-                  '.demographics-race-ethnicity'
-                );
-                for (let i = 0; i < demographicsRaceEthnicity.length; i++) {
-                  demographicsRaceEthnicity[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="race-ethnicity-indigenous">Indigenous American or Alaskan Native</label>
           </div>
@@ -527,14 +520,7 @@ const demographicsQuestions = {
               name="race-ethnicity-asian" 
               value="Asian or Asian-American" 
               class="demographics-race-ethnicity incomplete"
-              oninput="
-                let demographicsRaceEthnicity = document.querySelectorAll(
-                  '.demographics-race-ethnicity'
-                );
-                for (let i = 0; i < demographicsRaceEthnicity.length; i++) {
-                  demographicsRaceEthnicity[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="race-ethnicity-asian">Asian or Asian-American</label>
           </div>
@@ -545,14 +531,7 @@ const demographicsQuestions = {
               name="race-ethnicity-black" 
               value="African or African-American" 
               class="demographics-race-ethnicity incomplete"
-              oninput="
-                let demographicsRaceEthnicity = document.querySelectorAll(
-                  '.demographics-race-ethnicity'
-                );
-                for (let i = 0; i < demographicsRaceEthnicity.length; i++) {
-                  demographicsRaceEthnicity[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="race-ethnicity-black">African or African-American</label>
           </div>
@@ -563,14 +542,7 @@ const demographicsQuestions = {
               name="race-ethnicity-native" 
               value="Native Hawaiian or Pacific Islander" 
               class="demographics-race-ethnicity incomplete"
-              oninput="
-                let demographicsRaceEthnicity = document.querySelectorAll(
-                  '.demographics-race-ethnicity'
-                );
-                for (let i = 0; i < demographicsRaceEthnicity.length; i++) {
-                  demographicsRaceEthnicity[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="race-ethnicity-native">Native Hawaiian or other Pacific Islander</label>
           </div>
@@ -581,14 +553,7 @@ const demographicsQuestions = {
               name="race-ethnicity-white" 
               value="White" 
               class="demographics-race-ethnicity incomplete"
-              oninput="
-                let demographicsRaceEthnicity = document.querySelectorAll(
-                  '.demographics-race-ethnicity'
-                );
-                for (let i = 0; i < demographicsRaceEthnicity.length; i++) {
-                  demographicsRaceEthnicity[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="race-ethnicity-white">White</label>
           </div>
@@ -599,14 +564,7 @@ const demographicsQuestions = {
               name="race-ethnicity-hispanic" 
               value="Hispanic/Latino/a/e/x" 
               class="demographics-race-ethnicity incomplete"
-              oninput="
-                let demographicsRaceEthnicity = document.querySelectorAll(
-                  '.demographics-race-ethnicity'
-                );
-                for (let i = 0; i < demographicsRaceEthnicity.length; i++) {
-                  demographicsRaceEthnicity[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="race-ethnicity-hispanic">Hispanic/Latino/a/e/x</label>
           </div>
@@ -617,14 +575,7 @@ const demographicsQuestions = {
               name="race-ethnicity-other" 
               value="Other" 
               class="demographics-race-ethnicity incomplete"
-              oninput="
-                let demographicsRaceEthnicity = document.querySelectorAll(
-                  '.demographics-race-ethnicity'
-                );
-                for (let i = 0; i < demographicsRaceEthnicity.length; i++) {
-                  demographicsRaceEthnicity[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="race-ethnicity-other">Other</label>
           </div>
@@ -635,14 +586,7 @@ const demographicsQuestions = {
               name="race-ethnicity-prefer-not" 
               value="Prefer not to disclose" 
               class="demographics-race-ethnicity incomplete"
-              oninput="
-                let demographicsRaceEthnicity = document.querySelectorAll(
-                  '.demographics-race-ethnicity'
-                );
-                for (let i = 0; i < demographicsRaceEthnicity.length; i++) {
-                  demographicsRaceEthnicity[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="race-ethnicity-prefer-not">Prefer not to disclose</label>
           </div>
@@ -657,17 +601,10 @@ const demographicsQuestions = {
             <input 
               type="radio" 
               id="gender-man" 
-              name="gender-man" 
+              name="gender" 
               value="Man" 
               class="demographics-gender incomplete"
-              oninput="
-                let demographicsGender = document.querySelectorAll(
-                  '.demographics-gender'
-                );
-                for (let i = 0; i < demographicsGender.length; i++) {
-                  demographicsGender[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="gender-man">Man</label>
           </div>
@@ -675,17 +612,10 @@ const demographicsQuestions = {
             <input 
               type="radio" 
               id="gender-woman" 
-              name="gender-woman" 
+              name="gender" 
               value="Woman" 
               class="demographics-gender incomplete"
-              oninput="
-                let demographicsGender = document.querySelectorAll(
-                  '.demographics-gender'
-                );
-                for (let i = 0; i < demographicsGender.length; i++) {
-                  demographicsGender[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="gender-woman">Woman</label>
           </div>
@@ -693,17 +623,10 @@ const demographicsQuestions = {
             <input 
               type="radio" 
               id="gender-non-binary" 
-              name="gender-non-binary" 
+              name="gender" 
               value="Non-binary" 
               class="demographics-gender incomplete"
-              oninput="
-                let demographicsGender = document.querySelectorAll(
-                  '.demographics-gender'
-                );
-                for (let i = 0; i < demographicsGender.length; i++) {
-                  demographicsGender[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="gender-non-binary">Non-binary</label>
           </div>
@@ -711,17 +634,10 @@ const demographicsQuestions = {
             <input 
               type="radio" 
               id="gender-other" 
-              name="gender-other" 
+              name="gender" 
               value="Other" 
               class="demographics-gender incomplete"
-              oninput="
-                let demographicsGender = document.querySelectorAll(
-                  '.demographics-gender'
-                );
-                for (let i = 0; i < demographicsGender.length; i++) {
-                  demographicsGender[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="gender-other">Other</label>
           </div>
@@ -729,17 +645,10 @@ const demographicsQuestions = {
             <input 
               type="radio" 
               id="gender-prefer-not" 
-              name="gender-prefer-not" 
+              name="gender" 
               value="Prefer not to disclose" 
               class="demographics-gender incomplete"
-              oninput="
-                let demographicsGender = document.querySelectorAll(
-                  '.demographics-gender'
-                );
-                for (let i = 0; i < demographicsGender.length; i++) {
-                  demographicsGender[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="gender-prefer-not">Prefer not to disclose</label>
           </div>
@@ -757,17 +666,10 @@ const demographicsQuestions = {
             <input 
               type="radio" 
               id="education-less-high-school" 
-              name="education-less-high-school" 
+              name="education" 
               value="Less than a high school diploma" 
               class="demographics-education incomplete"
-              oninput="
-                let demographicsEducation = document.querySelectorAll(
-                  '.demographics-education'
-                );
-                for (let i = 0; i < demographicsEducation.length; i++) {
-                  demographicsEducation[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="education-less-high-school">
               Less than a high school diploma
@@ -778,17 +680,10 @@ const demographicsQuestions = {
             <input 
               type="radio" 
               id="education-high-school" 
-              name="education-high-school" 
+              name="education" 
               value="High school degree or equivalent (e.g. GED)" 
               class="demographics-education incomplete"
-              oninput="
-                let demographicsEducation = document.querySelectorAll(
-                  '.demographics-education'
-                );
-                for (let i = 0; i < demographicsEducation.length; i++) {
-                  demographicsEducation[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="education-high-school">
               High school degree or equivalent (e.g. GED)
@@ -799,17 +694,10 @@ const demographicsQuestions = {
             <input 
               type="radio" 
               id="education-some-college" 
-              name="education-some-college" 
+              name="education" 
               value="Some college, no degree" 
               class="demographics-education incomplete"
-              oninput="
-                let demographicsEducation = document.querySelectorAll(
-                  '.demographics-education'
-                );
-                for (let i = 0; i < demographicsEducation.length; i++) {
-                  demographicsEducation[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="education-some-college">
               Some college, no degree
@@ -820,17 +708,10 @@ const demographicsQuestions = {
             <input 
               type="radio" 
               id="education-associate" 
-              name="education-associate" 
+              name="education" 
               value="Associate Degree (e.g. AA, AS)" 
               class="demographics-education incomplete"
-              oninput="
-                let demographicsEducation = document.querySelectorAll(
-                  '.demographics-education'
-                );
-                for (let i = 0; i < demographicsEducation.length; i++) {
-                  demographicsEducation[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="education-associate">
               Associate Degree (e.g. AA, AS)
@@ -841,17 +722,10 @@ const demographicsQuestions = {
             <input 
               type="radio" 
               id="education-bachelors" 
-              name="education-bachelors" 
+              name="education" 
               value="Bachelor's Degree (e.g. BA, BS)" 
               class="demographics-education incomplete"
-              oninput="
-                let demographicsEducation = document.querySelectorAll(
-                  '.demographics-education'
-                );
-                for (let i = 0; i < demographicsEducation.length; i++) {
-                  demographicsEducation[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="education-bachelors">
               Bachelor's Degree (e.g. BA, BS)
@@ -862,17 +736,10 @@ const demographicsQuestions = {
             <input 
               type="radio" 
               id="education-postgraduate" 
-              name="education-postgraduate" 
+              name="education" 
               value="Postgraduate Degree (e.g. Master's Degree, Professional Degree, Doctorate Degree)" 
               class="demographics-education incomplete"
-              oninput="
-                let demographicsEducation = document.querySelectorAll(
-                  '.demographics-education'
-                );
-                for (let i = 0; i < demographicsEducation.length; i++) {
-                  demographicsEducation[i].classList.remove('incomplete');
-                };
-              "
+              onclick="this.classList.remove('incomplete');"
             >
             <label for="education-postgraduate">
               Postgraduate Degree (e.g. Master's Degree, Professional Degree, Doctorate Degree)
@@ -909,30 +776,33 @@ const demographicsQuestions = {
     const age = Number(demographicsData['age']);
 
     // Gender
-    let gender = '';
-    if (demographicsData['gender-man']) {
-      gender = 'Man';
-    } else if (demographicsData['gender-woman']) {
-      gender = 'Woman';
-    } else if (demographicsData['gender-non-binary']) {
-      gender = 'Non-Binary';
-    } else if (demographicsData['gender-other']) {
-      gender = 'Other';
-    }
+    let gender = demographicsData['gender'] || '';
 
     // Create a new object with the formatted data
     demographicsData = {
       age: age,
-      race_ethnicity_indigenous: demographicsData['race-ethnicity-indigenous'],
-      race_ethnicity_asian: demographicsData['race-ethnicity-asian'],
-      race_ethnicity_black: demographicsData['race-ethnicity-black'],
-      race_ethnicity_native: demographicsData['race-ethnicity-native'],
-      race_ethnicity_white: demographicsData['race-ethnicity-white'],
-      race_ethnicity_hispanic: demographicsData['race-ethnicity-hispanic'],
-      race_ethnicity_other: demographicsData['race-ethnicity-other'],
-      race_ethnicity_na: demographicsData['race-ethnicity-prefer-not'],
-      gender: gender
+      race_ethnicity_indigenous: demographicsData['race-ethnicity-indigenous'] || '',
+      race_ethnicity_asian: demographicsData['race-ethnicity-asian'] || '',
+      race_ethnicity_black: demographicsData['race-ethnicity-black'] || '',
+      race_ethnicity_native: demographicsData['race-ethnicity-native'] || '',
+      race_ethnicity_white: demographicsData['race-ethnicity-white'] || '',
+      race_ethnicity_hispanic: demographicsData['race-ethnicity-hispanic'] || '',
+      race_ethnicity_other: demographicsData['race-ethnicity-other'] || '',
+      race_ethnicity_na: demographicsData['race-ethnicity-prefer-not'] || '',
+      gender: gender,
+      education: demographicsData['education'] || ''
     };
+
+    // Check for incomplete fields and display a reminder if any are incomplete
+    let incompleteFields = [];
+    if (!demographicsData.age) incompleteFields.push("Age");
+    if (!demographicsData.gender) incompleteFields.push("Gender");
+    if (!demographicsData.education) incompleteFields.push("Education");
+    if (!Object.values(demographicsData).some(value => value)) incompleteFields.push("Race/Ethnicity");
+
+    if (incompleteFields.length > 0) {
+      alert(`Please complete the following fields: ${incompleteFields.join(", ")}`);
+    }
 
     jsPsych.data
       .getDataByTimelineNode(jsPsych.getCurrentTimelineNodeID())
