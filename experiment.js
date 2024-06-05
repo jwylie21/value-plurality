@@ -188,7 +188,7 @@ const instructionsSelf = {
      These pursuits include:
      <ul style="text-align: left;">
      <li><b>Knowledge</b> (pursuing truth, science, technology)</li>
-       <li><b>Morality</b> (pursuing justice, caring for others, practicing religion or spirituality)</li>
+       <li><b>Morality</b> (pursuing justice, caring for others, engaging in religious or spiritual practices)</li>
        <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
        <li><b>Politics</b> (pursuing social order, managing resources, organizing society)</li>
        <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
@@ -254,7 +254,7 @@ const instructionsOther = {
      These pursuits include:
      <ul style="text-align: left;">
      <li><b>Knowledge</b> (pursuing truth, science, technology)</li>
-     <li><b>Morality</b> (pursuing justice, caring for others, practicing religion or spirituality)</li>
+     <li><b>Morality</b> (pursuing justice, caring for others, engaging in religious or spiritual practices)</li>
      <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
      <li><b>Politics</b> (pursuing social order, managing resources, organizing society)</li>
      <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
@@ -302,7 +302,7 @@ const pieChartTrial = {
       <b>Adjust the amount of each of the following pursuits:</b>
       <ul style="text-align: left; font-size: 14px; margin-top: 5px;">
       <li><b>Knowledge</b> (pursuing truth, science, technology)</li>
-      <li><b>Morality</b> (pursuing justice, caring for others, practicing religion or spirituality)</li>
+      <li><b>Morality</b> (pursuing justice, caring for others, engaging in religious or spiritual practices)</li>
       <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
       <li><b>Politics</b> (pursuing social order, managing resources, organizing society)</li>
       <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
@@ -1060,7 +1060,7 @@ const save_data = {
        </p>`
      );
      setTimeout(function () {
-       window.location.href = "https://app.prolific.com/submissions/complete?cc=CUB7DRMV"; //this is updated as of april 22
+       window.location.href = "https://app.prolific.com/submissions/complete?cc=CO7EWNBQ"; //this is updated as of june5
      }, 5000)
    }
  };
