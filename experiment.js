@@ -187,10 +187,10 @@ const instructionsSelf = {
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-       <li><b>Knowledge</b> (pursuing truth, science, or technology)</li>
-       <li><b>Morality</b> (helping those in need, caring for others, practicing religion)</li>
-       <li><b>Pleasures</b> (pursuing enjoyment, play, and leisure in life)</li>
-       <li><b>Politics</b> (pursuing social order and organization)</li>
+     <li><b>Knowledge</b> (pursuing truth, science, technology)</li>
+       <li><b>Morality</b> (pursuing justice, caring for others, practicing religion or spirituality)</li>
+       <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
+       <li><b>Politics</b> (pursuing social order, managing resources, organizing society)</li>
        <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
      </ul>
      </p>`,
@@ -253,10 +253,10 @@ const instructionsOther = {
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-     <li><b>Knowledge</b> (pursuing truth, science, or technology)</li>
-     <li><b>Morality</b> (helping those in need, caring for others, practicing religion)</li>
-     <li><b>Pleasures</b> (pursuing enjoyment, play, and leisure in life)</li>
-     <li><b>Politics</b> (pursuing social order and organization)</li>
+     <li><b>Knowledge</b> (pursuing truth, science, technology)</li>
+     <li><b>Morality</b> (pursuing justice, caring for others, practicing religion or spirituality)</li>
+     <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
+     <li><b>Politics</b> (pursuing social order, managing resources, organizing society)</li>
      <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
      </ul>
      </p>`,
@@ -301,10 +301,10 @@ const pieChartTrial = {
   <div style="text-align: center; margin-bottom: 5px;">
       <b>Adjust the amount of each of the following pursuits:</b>
       <ul style="text-align: left; font-size: 14px; margin-top: 5px;">
-      <li><b>Knowledge</b> (pursuing truth, science, or technology)</li>
-      <li><b>Morality</b> (helping those in need, caring for others, practicing religion)</li>
-      <li><b>Pleasures</b> (pursuing enjoyment, play, and leisure in life)</li>
-      <li><b>Politics</b> (pursuing social order and organization)</li>
+      <li><b>Knowledge</b> (pursuing truth, science, technology)</li>
+      <li><b>Morality</b> (pursuing justice, caring for others, practicing religion or spirituality)</li>
+      <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
+      <li><b>Politics</b> (pursuing social order, managing resources, organizing society)</li>
       <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
       </ul> 
     </p>
@@ -462,10 +462,10 @@ var fallapart = {
   type: jsPsychSurveyLikert,
   questions: [
     {prompt: "If too many people pursue <b>knowledge</b> society will fall apart", name: 'Knowledge2', labels: disagree_scale},
-    {prompt: "If too many people pursue <b>morality<b> society will fall apart", name: 'Morality2', labels: disagree_scale},
-    {prompt: "If too many people pursue <b>pleasures<b> society will fall apart", name: 'Pleasures2', labels: disagree_scale},
-    {prompt: "If too many people pursue <b>politics<b> society will fall apart", name: 'Politics2', labels: disagree_scale},
-    {prompt: "If too many people pursue <b>self-expression<b> society will fall apart", name: 'Self-expression2', labels: disagree_scale},
+    {prompt: "If too many people pursue <b>morality</b> society will fall apart", name: 'Morality2', labels: disagree_scale},
+    {prompt: "If too many people pursue <b>pleasures</b> society will fall apart", name: 'Pleasures2', labels: disagree_scale},
+    {prompt: "If too many people pursue <b>politics</b> society will fall apart", name: 'Politics2', labels: disagree_scale},
+    {prompt: "If too many people pursue <b>self-expression</b> society will fall apart", name: 'Self-expression2', labels: disagree_scale},
   ],
   preamble:"For each of the following, please rate how much you agree or disagree with the statement",
   randomize_question_order: true
