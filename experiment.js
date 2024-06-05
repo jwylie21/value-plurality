@@ -175,10 +175,10 @@ const instructionsSelf = {
      `,
 
      `<p style="text-align: left;">
-     We want you to think about creating an ideal life by partitioning up the circle below: 
+     We want you to think about creating an ideal life by partitioning up the circle: 
      </p>
      
-     <img src="images/piealone.jpg" style="display: block; margin: 0 auto; width: 50%;">
+     <img src="images/piealone2.jpg" style="display: block; margin: 0 auto; width: 20%;">
 
      <p style="text-align: left;">
      This circle represents the amount of a person's life they dedicate to different pursuits. Your task is to decide <b>how much of a person's life</b> they should dedicate to different pursuits. 
@@ -189,8 +189,8 @@ const instructionsSelf = {
      <ul style="text-align: left;">
        <li><b>Knowledge</b> (pursuing truth, science, or technology)</li>
        <li><b>Morality</b> (helping those in need, caring for others, practicing religion)</li>
-       <li><b>Politics</b> (pursuing social order and organization)</li>
        <li><b>Pleasures</b> (pursuing enjoyment, play, and leisure in life)</li>
+       <li><b>Politics</b> (pursuing social order and organization)</li>
        <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
      </ul>
      </p>`,
@@ -240,13 +240,13 @@ const instructionsOther = {
      `,
 
      `<p style="text-align: left;">
-     We want you to think about creating an ideal society by partitioning up the circle below: 
+     We want you to think about creating an ideal society by partitioning up the circle: 
      </p>
      
-     <img src="images/piealone.jpg" style="display: block; margin: 0 auto; width: 50%;">
+     <img src="images/piealone2.jpg" style="display: block; margin: 0 auto; width: 30%;">
      
      <p style="text-align: left;">
-     In that society, its possible that some people dedicate themselves to some pursuits, while others dedicate themselves to other pursuits. 
+     In a society, its possible that some people dedicate themselves to some pursuits, while others dedicate themselves to other pursuits. 
      We want to know how you think people in an ideal society should divide up these pursuits. 
      </p>
 
@@ -255,8 +255,8 @@ const instructionsOther = {
      <ul style="text-align: left;">
      <li><b>Knowledge</b> (pursuing truth, science, or technology)</li>
      <li><b>Morality</b> (helping those in need, caring for others, practicing religion)</li>
-     <li><b>Politics</b> (pursuing social order and organization)</li>
      <li><b>Pleasures</b> (pursuing enjoyment, play, and leisure in life)</li>
+     <li><b>Politics</b> (pursuing social order and organization)</li>
      <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
      </ul>
      </p>`,
@@ -298,12 +298,15 @@ let proportions = {};
 const pieChartTrial = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
-  <div style="text-align: center; margin-bottom: 20px;">
-    <p>
-      <b>Adjust the amount of each of the following pursuits:</b></p>
-      <p>Knowledge relates to pursuing truth, science or technology, Moral relates to helping those in need, caring for others,
-      Politics relates to pursuing social order and organization, Pleasures relates to pursuing enjoyment, play, and leisure in life,
-      and Self-expression relates to making art, perfecting a sport. </p>
+  <div style="text-align: center; margin-bottom: 5px;">
+      <b>Adjust the amount of each of the following pursuits:</b>
+      <ul style="text-align: left; font-size: 14px; margin-top: 5px;">
+      <li><b>Knowledge</b> (pursuing truth, science, or technology)</li>
+      <li><b>Morality</b> (helping those in need, caring for others, practicing religion)</li>
+      <li><b>Pleasures</b> (pursuing enjoyment, play, and leisure in life)</li>
+      <li><b>Politics</b> (pursuing social order and organization)</li>
+      <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
+      </ul> 
     </p>
   </div>
 
@@ -311,20 +314,20 @@ const pieChartTrial = {
     <canvas id="pieChart"></canvas>
   </div>
   <div id="inputContainer" style="width: 400px; margin: 0 auto; text-align: left;">
-    <label for="cat1">Knowledge (pursuing truth, science, or technology):</label>
+    <label for="cat1">Knowledge:</label>
     <input type="number" id="cat1" value="20" min="0" max="100"><br>
-    <label for="cat2">Morality (helping those in need, caring for others, practicing religion):</label>
+    <label for="cat2">Morality:</label>
     <input type="number" id="cat2" value="20" min="0" max="100"><br>
-    <label for="cat3">Pleasures (pursuing enjoyment, play, and leisure in life):</label>
+    <label for="cat3">Pleasures:</label>
     <input type="number" id="cat3" value="20" min="0" max="100"><br>
-    <label for="cat4">Politics (pursuing social order and organization):</label>
+    <label for="cat4">Politics:</label>
     <input type="number" id="cat4" value="20" min="0" max="100"><br>
-    <label for="cat5">Self-expression (culture, making art, music, perfecting a sport):</label>
+    <label for="cat5">Self-expression:</label>
     <input type="number" id="cat5" value="20" min="0" max="100"><br>
   </div>
   <p></p>
   <p id="error-message" style="color: red;"></p>
-  <p>The piechart will update when the values equal 100. </p>
+  <p><i>The piechart will update when the values <b>equal 100</b>.</i></p>
   <p>Press the <b>space bar</b> when you are done adjusting the proportions to continue.</p>
   `,
   choices: [' '],
@@ -333,7 +336,7 @@ const pieChartTrial = {
     var pieChart = new Chart(ctx, {
       type: 'pie',
       data: {
-        labels: ['Knowledge', 'Morality', 'Pleasures', 'Politics', 'Self-expression',],
+        labels: ['Knowledge', 'Morality', 'Pleasures', 'Politics', 'Self-expression'],
         datasets: [{
           data: [20, 20, 20, 20, 20],
           backgroundColor: ['red', 'blue', 'green', 'yellow', 'orange']
