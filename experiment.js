@@ -461,10 +461,10 @@ var whichone = {
     let whichoneData = data.response;
 
     whichoneData = {
-      human: whichoneData['human-pursuit'],
-      youvalue: whichoneData['you-pursuit'],
-      shouldvalue: whichoneData['should-pursuit'],
-      othersshould: whichoneData['others-pursuit']
+      human: whichoneData['human'],
+      youvalue: whichoneData['youvalue'],
+      shouldvalue: whichoneData['shouldvalue'],
+      othersshould: whichoneData['othersshould']
     };
 
     jsPsych.data
