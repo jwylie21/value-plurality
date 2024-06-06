@@ -405,7 +405,19 @@ if (pluralCondition === 'self') {
 var explain = {
   type: jsPsychSurveyText,
   questions: [
-    {prompt: 'Why did you complete the pie chart in the way you did? Are there any pursuits you think should have been included?', name: 'pieexplain', rows: 5}  ]
+    {prompt: 'Why did you complete the pie chart in the way you did? Are there any pursuits you think should have been included?', name: 'pieexplain', rows: 5}  
+  ],
+  on_finish: function (data) {
+    let explainData = data.response;
+
+    explainData = {
+      feedback: explainData['explain']
+    };
+
+    jsPsych.data
+      .getDataByTimelineNode(jsPsych.getCurrentTimelineNodeID())
+      .addToAll(explainData);
+  }
 }
 
 timeline.push(explain);
@@ -445,6 +457,20 @@ var whichone = {
       horizontal: true
     }
   ],
+  on_finish: function (data) {
+    let whichoneData = data.response;
+
+    whichoneData = {
+      human: whichoneData['human-pursuit'],
+      youvalue: whichoneData['you-pursuit'],
+      shouldvalue: whichoneData['should-pursuit'],
+      othersshould: whichoneData['others-pursuit']
+    };
+
+    jsPsych.data
+      .getDataByTimelineNode(jsPsych.getCurrentTimelineNodeID())
+      .addToAll(whichoneData);
+  }
 };
 
 timeline.push(whichone);
@@ -460,7 +486,22 @@ var ourmfq = {
   ],
   preamble:"In this section, please rate each item on how important it would be to you when trying to decide if a pursuit was valuable or not.",
   randomize_question_order: true,
-  required: true
+  required: true,
+  on_finish: function(data) {
+    let mfqData = data.response;
+
+    mfqData = {
+      knowledge_importance: mfqData['Knowledge1'],
+      morality_importance: mfqData['Morality1'],
+      pleasures_importance: mfqData['Pleasures1'],
+      politics_importance: mfqData['Politics1'],
+      self_expression_importance: mfqData['Self-expression1']
+    };
+
+    jsPsych.data
+      .getDataByTimelineNode(jsPsych.getCurrentTimelineNodeID())
+      .addToAll(mfqData);
+  }
 };
 
 timeline.push(ourmfq);
@@ -476,7 +517,22 @@ var fallapart = {
   ],
   preamble:"For each of the following, please rate how much you agree or disagree with the statement",
   randomize_question_order: true,
-  required: true
+  required: true,
+  on_finish: function(data) {
+    let fallapartData = data.response;
+
+    fallapartData = {
+      knowledge_fallapart: fallapartData['Knowledge2'],
+      morality_fallapart: fallapartData['Morality2'],
+      pleasures_fallapart: fallapartData['Pleasures2'],
+      politics_fallapart: fallapartData['Politics2'],
+      self_expression_fallapart: fallapartData['Self-expression2']
+    };
+
+    jsPsych.data
+      .getDataByTimelineNode(jsPsych.getCurrentTimelineNodeID())
+      .addToAll(fallapartData);
+  }
 };
 
 timeline.push(fallapart);
@@ -493,6 +549,17 @@ var pilotqs = {
       horizontal: true
     }
   ],
+  on_finish: function(data) {
+    let pilotData = data.response;
+
+    pilotData = {
+      pilot_choice: pilotData['pilot']
+    };
+
+    jsPsych.data
+      .getDataByTimelineNode(jsPsych.getCurrentTimelineNodeID())
+      .addToAll(pilotData);
+  }
 };
 
 timeline.push(pilotqs);
@@ -738,7 +805,6 @@ const feedback = {
     let purposeFeedbackData = data.response;
 
     purposeFeedbackData = {
-      guess_study_purpose: purposeFeedbackData['guess-study-purpose'],
       feedback: purposeFeedbackData['feedback']
     };
 
