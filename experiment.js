@@ -486,7 +486,7 @@ var pilotqs = {
   type: jsPsychSurveyMultiChoice,
   questions: [
     {
-      prompt: "Imagine that you ran into an acquaintance from your neighborhood at a coffee shop on the other side of town. You really like this person and want to get to know them better, but you don't have their phone number. If you wanted to try to run into them again, where should you go?", 
+      prompt: "Imagine that you ran into an acquaintance from your neighborhood at a coffee shop on the other side of town. You really like this person and want to get to know them better, but you don't have their phone number. Where do you think you'd have the strongest feeling that you'd run into them again?", 
       name: 'pilot', 
       options: ['Your neighborhood',  'The coffee shop'], 
       required: true,
