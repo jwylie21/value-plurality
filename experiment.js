@@ -458,8 +458,9 @@ var ourmfq = {
     {prompt: "Politics", name: 'Politics1', labels: likert_scale},
     {prompt: "Self-expression", name: 'Self-expression1', labels: likert_scale},
   ],
-  preamble:" In this section, please rate each item on how important it would be to you when trying to decide if a pursuit was valuable or not.",
-  randomize_question_order: true
+  preamble:"In this section, please rate each item on how important it would be to you when trying to decide if a pursuit was valuable or not.",
+  randomize_question_order: true,
+  required: true
 };
 
 timeline.push(ourmfq);
@@ -474,7 +475,8 @@ var fallapart = {
     {prompt: "If too many people pursue <b>self-expression</b> society will fall apart", name: 'Self-expression2', labels: disagree_scale},
   ],
   preamble:"For each of the following, please rate how much you agree or disagree with the statement",
-  randomize_question_order: true
+  randomize_question_order: true,
+  required: true
 };
 
 timeline.push(fallapart);
@@ -658,7 +660,9 @@ const demographicsQuestions = {
       gender: gender,
       education: demographicsData['education'] || ''
     };
-    jsPsych.data.get().push(demographicsData);
+    jsPsych.data
+    .getDataByTimelineNode(jsPsych.getCurrentTimelineNodeID())
+    .addToAll(demographicsData);
   }
 };
 
