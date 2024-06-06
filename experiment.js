@@ -178,7 +178,7 @@ const instructionsSelf = {
      We want you to think about creating an ideal life by partitioning up the circle: 
      </p>
      
-     <img src="images/piealone2.jpg" style="display: block; margin: 0 auto; width: 20%;">
+     <img src="images/piealone2.jpg" style="display: block; margin: 0 auto; width: 30%;">
 
      <p style="text-align: left;">
      This circle represents the amount of a person's life they dedicate to different pursuits. Your task is to decide <b>how much of a person's life</b> they should dedicate to different pursuits. 
@@ -292,7 +292,6 @@ const instructionsOther = {
   show_clickable_nav: true,
 };
 
-// TASK 
 // TASK 
 let proportions = {
   cat1: 20,
@@ -499,270 +498,116 @@ timeline.push(pilotqs);
 /////////////////////////////////////////////// DEMOGRAPHICS ///////////////////////////////////////////////
 const demographicsQuestions = {
   type: jsPsychSurveyHtmlForm,
-  preamble:
-    `<p class="jspsych-survey-multi-choice-preamble">
+  preamble: `<p class="jspsych-survey-multi-choice-preamble">
       Using the scales provided, please respond to each question about you as an individual:
     </p>`,
   html: `
         <!-- Age -->
-
         <div class="jspsych-survey-multi-choice-question">
           <label for="age">How old are you?</label><br>
-          <input 
-            type="number" 
-            id="age" 
-            name="age" 
-            min="18" max="100" 
-            style="padding: 5px; width: 40px;" 
-            class="incomplete"
-            oninput="this.classList.remove('incomplete');"
-          >
+          <input type="number" id="age" name="age" min="18" max="100" style="padding: 5px; width: 40px;" class="incomplete" oninput="this.classList.remove('incomplete');">
         </div>
         
-
         <!-- Race/Ethnicity -->
-
         <div class="jspsych-survey-multi-choice-question">
           <legend>Please indicate how you identify yourself:</legend>
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="checkbox" 
-              id="race-ethnicity-indigenous" 
-              name="race-ethnicity-indigenous" 
-              value="Indigenous American or Alaskan Native" 
-              class="demographics-race-ethnicity incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="checkbox" id="race-ethnicity-indigenous" name="race-ethnicity-indigenous" value="Indigenous American or Alaskan Native" class="demographics-race-ethnicity incomplete" onclick="this.classList.remove('incomplete');">
             <label for="race-ethnicity-indigenous">Indigenous American or Alaskan Native</label>
           </div>
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="checkbox" 
-              id="race-ethnicity-asian" 
-              name="race-ethnicity-asian" 
-              value="Asian or Asian-American" 
-              class="demographics-race-ethnicity incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="checkbox" id="race-ethnicity-asian" name="race-ethnicity-asian" value="Asian or Asian-American" class="demographics-race-ethnicity incomplete" onclick="this.classList.remove('incomplete');">
             <label for="race-ethnicity-asian">Asian or Asian-American</label>
           </div>
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="checkbox" 
-              id="race-ethnicity-black" 
-              name="race-ethnicity-black" 
-              value="African or African-American" 
-              class="demographics-race-ethnicity incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="checkbox" id="race-ethnicity-black" name="race-ethnicity-black" value="African or African-American" class="demographics-race-ethnicity incomplete" onclick="this.classList.remove('incomplete');">
             <label for="race-ethnicity-black">African or African-American</label>
           </div>
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="checkbox" 
-              id="race-ethnicity-native" 
-              name="race-ethnicity-native" 
-              value="Native Hawaiian or Pacific Islander" 
-              class="demographics-race-ethnicity incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="checkbox" id="race-ethnicity-native" name="race-ethnicity-native" value="Native Hawaiian or other Pacific Islander" class="demographics-race-ethnicity incomplete" onclick="this.classList.remove('incomplete');">
             <label for="race-ethnicity-native">Native Hawaiian or other Pacific Islander</label>
           </div>
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="checkbox" 
-              id="race-ethnicity-white" 
-              name="race-ethnicity-white" 
-              value="White" 
-              class="demographics-race-ethnicity incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="checkbox" id="race-ethnicity-white" name="race-ethnicity-white" value="White" class="demographics-race-ethnicity incomplete" onclick="this.classList.remove('incomplete');">
             <label for="race-ethnicity-white">White</label>
           </div>
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="checkbox" 
-              id="race-ethnicity-hispanic" 
-              name="race-ethnicity-hispanic" 
-              value="Hispanic/Latino/a/e/x" 
-              class="demographics-race-ethnicity incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="checkbox" id="race-ethnicity-hispanic" name="race-ethnicity-hispanic" value="Hispanic/Latino/a/e/x" class="demographics-race-ethnicity incomplete" onclick="this.classList.remove('incomplete');">
             <label for="race-ethnicity-hispanic">Hispanic/Latino/a/e/x</label>
           </div>
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="checkbox" 
-              id="race-ethnicity-other" 
-              name="race-ethnicity-other" 
-              value="Other" 
-              class="demographics-race-ethnicity incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="checkbox" id="race-ethnicity-other" name="race-ethnicity-other" value="Other" class="demographics-race-ethnicity incomplete" onclick="this.classList.remove('incomplete');">
             <label for="race-ethnicity-other">Other</label>
           </div>
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="checkbox"
-              id="race-ethnicity-prefer-not" 
-              name="race-ethnicity-prefer-not" 
-              value="Prefer not to disclose" 
-              class="demographics-race-ethnicity incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="checkbox" id="race-ethnicity-prefer-not" name="race-ethnicity-prefer-not" value="Prefer not to disclose" class="demographics-race-ethnicity incomplete" onclick="this.classList.remove('incomplete');">
             <label for="race-ethnicity-prefer-not">Prefer not to disclose</label>
           </div>
         </div>
 
-
         <!-- Gender -->
-        
         <div class="jspsych-survey-multi-choice-question">
           <legend>With which gender do you most closely identify?</legend>
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="radio" 
-              id="gender-man" 
-              name="gender" 
-              value="Man" 
-              class="demographics-gender incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="radio" id="gender-man" name="gender" value="Man" class="demographics-gender incomplete" onclick="this.classList.remove('incomplete');">
             <label for="gender-man">Man</label>
           </div>
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="radio" 
-              id="gender-woman" 
-              name="gender" 
-              value="Woman" 
-              class="demographics-gender incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="radio" id="gender-woman" name="gender" value="Woman" class="demographics-gender incomplete" onclick="this.classList.remove('incomplete');">
             <label for="gender-woman">Woman</label>
           </div>
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="radio" 
-              id="gender-non-binary" 
-              name="gender" 
-              value="Non-binary" 
-              class="demographics-gender incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="radio" id="gender-non-binary" name="gender" value="Non-binary" class="demographics-gender incomplete" onclick="this.classList.remove('incomplete');">
             <label for="gender-non-binary">Non-binary</label>
           </div>
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="radio" 
-              id="gender-other" 
-              name="gender" 
-              value="Other" 
-              class="demographics-gender incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="radio" id="gender-other" name="gender" value="Other" class="demographics-gender incomplete" onclick="this.classList.remove('incomplete');">
             <label for="gender-other">Other</label>
           </div>
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="radio" 
-              id="gender-prefer-not" 
-              name="gender" 
-              value="Prefer not to disclose" 
-              class="demographics-gender incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="radio" id="gender-prefer-not" name="gender" value="Prefer not to disclose" class="demographics-gender incomplete" onclick="this.classList.remove('incomplete');">
             <label for="gender-prefer-not">Prefer not to disclose</label>
           </div>
         </div>
 
-
         <!-- Education -->
-        
         <div class="jspsych-survey-multi-choice-question">
           <legend>
             What is the highest level of education you have received? 
             (If you are currently enrolled in school, please indicate the highest degree you have received)
           </legend>
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="radio" 
-              id="education-less-high-school" 
-              name="education" 
-              value="Less than a high school diploma" 
-              class="demographics-education incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="radio" id="education-less-high-school" name="education" value="Less than a high school diploma" class="demographics-education incomplete" onclick="this.classList.remove('incomplete');">
             <label for="education-less-high-school">
               Less than a high school diploma
             </label>
           </div>
-
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="radio" 
-              id="education-high-school" 
-              name="education" 
-              value="High school degree or equivalent (e.g. GED)" 
-              class="demographics-education incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="radio" id="education-high-school" name="education" value="High school degree or equivalent (e.g. GED)" class="demographics-education incomplete" onclick="this.classList.remove('incomplete');">
             <label for="education-high-school">
               High school degree or equivalent (e.g. GED)
             </label>
           </div>
-
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="radio" 
-              id="education-some-college" 
-              name="education" 
-              value="Some college, no degree" 
-              class="demographics-education incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="radio" id="education-some-college" name="education" value="Some college, no degree" class="demographics-education incomplete" onclick="this.classList.remove('incomplete');">
             <label for="education-some-college">
               Some college, no degree
             </label>
           </div>
-
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="radio" 
-              id="education-associate" 
-              name="education" 
-              value="Associate Degree (e.g. AA, AS)" 
-              class="demographics-education incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="radio" id="education-associate" name="education" value="Associate Degree (e.g. AA, AS)" class="demographics-education incomplete" onclick="this.classList.remove('incomplete');">
             <label for="education-associate">
               Associate Degree (e.g. AA, AS)
             </label>
           </div>
-
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="radio" 
-              id="education-bachelors" 
-              name="education" 
-              value="Bachelor's Degree (e.g. BA, BS)" 
-              class="demographics-education incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="radio" id="education-bachelors" name="education" value="Bachelor's Degree (e.g. BA, BS)" class="demographics-education incomplete" onclick="this.classList.remove('incomplete');">
             <label for="education-bachelors">
               Bachelor's Degree (e.g. BA, BS)
             </label>
           </div>
-          
           <div class="jspsych-survey-multi-choice-option">
-            <input 
-              type="radio" 
-              id="education-postgraduate" 
-              name="education" 
-              value="Postgraduate Degree (e.g. Master's Degree, Professional Degree, Doctorate Degree)" 
-              class="demographics-education incomplete"
-              onclick="this.classList.remove('incomplete');"
-            >
+            <input type="radio" id="education-postgraduate" name="education" value="Postgraduate Degree (e.g. Master's Degree, Professional Degree, Doctorate Degree)" class="demographics-education incomplete" onclick="this.classList.remove('incomplete');">
             <label for="education-postgraduate">
               Postgraduate Degree (e.g. Master's Degree, Professional Degree, Doctorate Degree)
             </label>
@@ -790,7 +635,6 @@ const demographicsQuestions = {
         </style>
       `,
   button_label: 'Next',
-  request_response: true,
   on_finish: function (data) {
     let demographicsData = data.response;
 
@@ -814,21 +658,7 @@ const demographicsQuestions = {
       gender: gender,
       education: demographicsData['education'] || ''
     };
-
-    // Check for incomplete fields and display a reminder if any are incomplete
-    let incompleteFields = [];
-    if (!demographicsData.age) incompleteFields.push("Age");
-    if (!demographicsData.gender) incompleteFields.push("Gender");
-    if (!demographicsData.education) incompleteFields.push("Education");
-    if (!Object.values(demographicsData).some(value => value)) incompleteFields.push("Race/Ethnicity");
-
-    if (incompleteFields.length > 0) {
-      alert(`Please complete the following fields: ${incompleteFields.join(", ")}`);
-    }
-
-    jsPsych.data
-      .getDataByTimelineNode(jsPsych.getCurrentTimelineNodeID())
-      .addToAll(demographicsData);
+    jsPsych.data.get().push(demographicsData);
   }
 };
 
