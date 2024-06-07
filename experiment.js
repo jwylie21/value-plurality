@@ -187,10 +187,10 @@ const instructionsSelf = {
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-     <li><b>Knowledge</b> (pursuing truth, science, technology)</li>
+       <li><b>Industry</b> (creating and managing resources, providing goods, services)</li>
+       <li><b>Knowledge</b> (pursuing truth, science, technology)</li>
        <li><b>Morality</b> (pursuing justice, caring for others, engaging in religious or spiritual practices)</li>
        <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
-       <li><b>Politics</b> (pursuing social order, managing resources, organizing society)</li>
        <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
      </ul>
      </p>`,
@@ -211,7 +211,7 @@ const instructionsSelf = {
     </p>`,
 
     `<p style="text-align: left;">
-    You will start with a pie chart where all of the values are evenly broken up. The values of the pie chart must equal exactly 100. 
+    You will start with a pie chart where none of the pursuits have been assigned value. Because of this, the pie chart will not be visible until you assign values. The values of the pie chart must equal exactly 100. 
     </p>`,
 
 
@@ -253,10 +253,10 @@ const instructionsOther = {
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
+     <li><b>Industry</b> (creating and managing resources, providing goods, services)</li>
      <li><b>Knowledge</b> (pursuing truth, science, technology)</li>
      <li><b>Morality</b> (pursuing justice, caring for others, engaging in religious or spiritual practices)</li>
      <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
-     <li><b>Politics</b> (pursuing social order, managing resources, organizing society)</li>
      <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
      </ul>
      </p>`,
@@ -280,7 +280,7 @@ const instructionsOther = {
     </p>`,
 
     `<p style="text-align: left;">
-    You will start with a pie chart where all of the values are evenly broken up. The values of the pie chart must equal exactly 100. 
+    You will start with a pie chart where none of the pursuits have been assigned value. Because of this, the pie chart will not be visible until you assign values. The values of the pie chart must equal exactly 100. 
     </p>`,
 
 
@@ -294,11 +294,11 @@ const instructionsOther = {
 
 // TASK 
 let proportions = {
-  cat1: 20,
-  cat2: 20,
-  cat3: 20,
-  cat4: 20,
-  cat5: 20
+  cat1: 0,
+  cat2: 0,
+  cat3: 0,
+  cat4: 0,
+  cat5: 0
 };
 
 const pieChartTrial = {
@@ -307,10 +307,10 @@ const pieChartTrial = {
   <div style="text-align: center; margin-bottom: 5px;">
       <b>Adjust the amount of each of the following pursuits:</b>
       <ul style="text-align: left; font-size: 14px; margin-top: 5px;">
+      <li><b>Industry</b> (creating and managing resources, providing goods, services)</li>
       <li><b>Knowledge</b> (pursuing truth, science, technology)</li>
       <li><b>Morality</b> (pursuing justice, caring for others, engaging in religious or spiritual practices)</li>
       <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
-      <li><b>Politics</b> (pursuing social order, managing resources, organizing society)</li>
       <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
       </ul> 
     </p>
@@ -320,16 +320,16 @@ const pieChartTrial = {
     <canvas id="pieChart"></canvas>
   </div>
   <div id="inputContainer" style="width: 400px; margin: 0 auto; text-align: left;">
-    <label for="cat1">Knowledge:</label>
-    <input type="number" id="cat1" value="20" min="0" max="100"><br>
-    <label for="cat2">Morality:</label>
-    <input type="number" id="cat2" value="20" min="0" max="100"><br>
-    <label for="cat3">Pleasures:</label>
-    <input type="number" id="cat3" value="20" min="0" max="100"><br>
-    <label for="cat4">Politics:</label>
-    <input type="number" id="cat4" value="20" min="0" max="100"><br>
+    <label for="cat1">Industry:</label>
+    <input type="number" id="cat1" value="0" min="0" max="100"><br>
+    <label for="cat2">Knowledge:</label>
+    <input type="number" id="cat2" value="0" min="0" max="100"><br>
+    <label for="cat3">Morality:</label>
+    <input type="number" id="cat3" value="0" min="0" max="100"><br>
+    <label for="cat4">Pleasures:</label>
+    <input type="number" id="cat4" value="0" min="0" max="100"><br>
     <label for="cat5">Self-expression:</label>
-    <input type="number" id="cat5" value="20" min="0" max="100"><br>
+    <input type="number" id="cat5" value="0" min="0" max="100"><br>
   </div>
   <p></p>
   <p id="error-message" style="color: red;"></p>
@@ -342,9 +342,9 @@ const pieChartTrial = {
     var pieChart = new Chart(ctx, {
       type: 'pie',
       data: {
-        labels: ['Knowledge', 'Morality', 'Pleasures', 'Politics', 'Self-expression'],
+        labels: ['Industry','Knowledge', 'Morality', 'Pleasures', 'Self-expression'],
         datasets: [{
-          data: [20, 20, 20, 20, 20],
+          data: [0, 0, 0, 0, 0],
           backgroundColor: ['red', 'blue', 'green', 'yellow', 'orange']
         }]
       },
@@ -429,14 +429,14 @@ var whichone = {
     {
       prompt: "If you had to choose, which of the pursuits do you think is most important to being human?", 
       name: 'human', 
-      options: ['Knowledge',  'Morality', 'Pleasures', 'Politics', 'Self-expression' ], 
+      options: ['Industry','Knowledge',  'Morality', 'Pleasures', 'Self-expression' ], 
       required: true,
       horizontal: true
     }, 
     {
       prompt: "In your life now, which of the pursuits would you say YOU most pursue in your life?", 
       name: 'youvalue', 
-      options: ['Knowledge',  'Morality', 'Pleasures', 'Politics', 'Self-expression' ], 
+      options: ['Industry','Knowledge',  'Morality', 'Pleasures', 'Self-expression' ], 
       required: true,
       horizontal: true,
     },
@@ -444,7 +444,7 @@ var whichone = {
     {
       prompt: "Which of the pursuits should YOU most pursue in your life?", 
       name: 'shouldvalue', 
-      options: ['Knowledge',  'Morality', 'Pleasures', 'Politics', 'Self-expression' ], 
+      options: ['Industry','Knowledge',  'Morality', 'Pleasures', 'Self-expression' ], 
       required: true,
       horizontal: true
     },
@@ -452,7 +452,7 @@ var whichone = {
     {
       prompt: "Which of the pursuits should OTHERS spend most time pursuing in their lives?", 
       name: 'othersshould', 
-      options: ['Self-expression', 'Politics', 'Pleasures', 'Morality', 'Knowledge'], 
+      options: ['Self-expression', 'Pleasures', 'Morality', 'Knowledge', 'Industry'], 
       required: true,
       horizontal: true
     }
@@ -478,10 +478,10 @@ timeline.push(whichone);
 var ourmfq = {
   type: jsPsychSurveyLikert,
   questions: [
+    {prompt: "Industry", name: 'Industry1', labels: likert_scale},
     {prompt: "Knowledge", name: 'Knowledge1', labels: likert_scale},
     {prompt: "Morality", name: 'Morality1', labels: likert_scale},
     {prompt: "Pleasures", name: 'Pleasures1', labels: likert_scale},
-    {prompt: "Politics", name: 'Politics1', labels: likert_scale},
     {prompt: "Self-expression", name: 'Self-expression1', labels: likert_scale},
   ],
   preamble:"In this section, please rate each item on how important it would be to you when trying to decide if a pursuit was valuable or not.",
@@ -491,10 +491,10 @@ var ourmfq = {
     let mfqData = data.response;
 
     mfqData = {
+      industry_importance: mfqData['Industry1'],
       knowledge_importance: mfqData['Knowledge1'],
       morality_importance: mfqData['Morality1'],
       pleasures_importance: mfqData['Pleasures1'],
-      politics_importance: mfqData['Politics1'],
       self_expression_importance: mfqData['Self-expression1']
     };
 
@@ -509,10 +509,10 @@ timeline.push(ourmfq);
 var fallapart = {
   type: jsPsychSurveyLikert,
   questions: [
+    {prompt: "If too many people pursue <b>industry</b> society will fall apart", name: 'Industry2', labels: disagree_scale},
     {prompt: "If too many people pursue <b>knowledge</b> society will fall apart", name: 'Knowledge2', labels: disagree_scale},
     {prompt: "If too many people pursue <b>morality</b> society will fall apart", name: 'Morality2', labels: disagree_scale},
     {prompt: "If too many people pursue <b>pleasures</b> society will fall apart", name: 'Pleasures2', labels: disagree_scale},
-    {prompt: "If too many people pursue <b>politics</b> society will fall apart", name: 'Politics2', labels: disagree_scale},
     {prompt: "If too many people pursue <b>self-expression</b> society will fall apart", name: 'Self-expression2', labels: disagree_scale},
   ],
   preamble:"For each of the following, please rate how much you agree or disagree with the statement",
@@ -522,10 +522,10 @@ var fallapart = {
     let fallapartData = data.response;
 
     fallapartData = {
+      industry_fallapart: fallapartData['Industry2'],
       knowledge_fallapart: fallapartData['Knowledge2'],
       morality_fallapart: fallapartData['Morality2'],
       pleasures_fallapart: fallapartData['Pleasures2'],
-      politics_fallapart: fallapartData['Politics2'],
       self_expression_fallapart: fallapartData['Self-expression2']
     };
 
