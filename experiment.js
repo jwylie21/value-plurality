@@ -204,7 +204,7 @@ const instructionsSelf = {
   
     `<p style="text-align: left;"> Here is an example where one pursuit, Industry, is given a large value and the others weighted equally:</p> 
  
-    <img src="images/piegroups2.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 30%;">`,
+    <img src="images/piegroups2.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 40%;">`,
 
     `<p style="text-align: left;">
     Now it is time to edit the circle so that it matches what you think a person should pursue. You may not see all the things you value, 
@@ -266,7 +266,7 @@ const instructionsOther = {
      </p>`,
 
      `<p style="text-align: left;">
-    You will see a pie chart like the one below and be asked to edit it so that it matches how you think a person should ideally divide up these pursuits in their life. 
+    You will see a pie chart like the one below and be asked to edit it so that it matches how you think people in an ideal society should divide up these pursuits.
     </p>
     <p style="text-align: left;"> Here is an example where only two pursuits are selected, Industry and Pleasures, and the other three are set to zero:</p> 
  
@@ -274,7 +274,7 @@ const instructionsOther = {
 
     `<p style="text-align: left;"> Here is an example where one pursuit, Industry, is given a large value and the others weighted equally:</p> 
  
-    <img src="images/piegroups2.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 30%;">`,
+    <img src="images/piegroups2.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 40%;">`,
 
     `<p style="text-align: left;">
     Now it is time to edit the circle so that it matches what you think people in an ideal society should pursue. You may not see all the things you value, 
