@@ -191,7 +191,7 @@ const instructionsSelf = {
        <li><b>Knowledge</b> (pursuing truth, science, technology)</li>
        <li><b>Morality</b> (pursuing justice, caring for others, engaging in religious or spiritual practices)</li>
        <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
-       <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
+       <li><b>Self-expression</b> (culture, making and consuming art, music, sports)</li>
      </ul>
      </p>`,
 
@@ -261,7 +261,7 @@ const instructionsOther = {
      <li><b>Knowledge</b> (pursuing truth, science, technology)</li>
      <li><b>Morality</b> (pursuing justice, caring for others, engaging in religious or spiritual practices)</li>
      <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
-     <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
+     <li><b>Self-expression</b> (culture, making and consuming art, music, sports)</li>
      </ul>
      </p>`,
 
@@ -317,7 +317,7 @@ const pieChartTrial = {
       <li><b>Knowledge</b> (pursuing truth, science, technology)</li>
       <li><b>Morality</b> (pursuing justice, caring for others, engaging in religious or spiritual practices)</li>
       <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
-      <li><b>Self-expression</b> (culture, making art, music, perfecting a sport)</li>
+      <li><b>Self-expression</b> (culture, making and consuming art, music, sports)</li>
       </ul> 
     </p>
   </div>
