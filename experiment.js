@@ -198,11 +198,11 @@ const instructionsSelf = {
    `<p style="text-align: left;">
     You will see a pie chart like the one below and be asked to edit it so that it matches how you think a person should ideally divide up these pursuits in their life. 
     </p>
-    <p style="text-align: left;"> Here is an example where only two values are selected, Industry and Pleasures and the other three are set to zero:</p> 
+    <p style="text-align: left;"> Here is an example where only two values are selected, Industry and Pleasures, and the other three are set to zero:</p> 
  
     <img src="images/piegroups.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 30%;">`,
   
-    `<p style="text-align: left;"> Here is an example where one pursuit, Industry, is given a large values and the others weighted equally:</p> 
+    `<p style="text-align: left;"> Here is an example where one pursuit, Industry, is given a large value and the others weighted equally:</p> 
  
     <img src="images/piegroups2.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 30%;">`,
 
@@ -268,11 +268,11 @@ const instructionsOther = {
      `<p style="text-align: left;">
     You will see a pie chart like the one below and be asked to edit it so that it matches how you think a person should ideally divide up these pursuits in their life. 
     </p>
-    <p style="text-align: left;"> Here is an example where only two pursuits are selected, Industry and Pleasures and the other three are set to zero:</p> 
+    <p style="text-align: left;"> Here is an example where only two pursuits are selected, Industry and Pleasures, and the other three are set to zero:</p> 
  
     <img src="images/piegroups.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 30%;">`,
 
-    `<p style="text-align: left;"> Here is an example where one pursuit, Industry, is given a large values and the others weighted equally:</p> 
+    `<p style="text-align: left;"> Here is an example where one pursuit, Industry, is given a large value and the others weighted equally:</p> 
  
     <img src="images/piegroups2.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 30%;">`,
 
