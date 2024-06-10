@@ -187,8 +187,8 @@ const instructionsSelf = {
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-       <li><b>Industry</b> (creating and managing resources, providing goods, services)</li>
-       <li><b>Knowledge</b> (pursuing truth, science, technology)</li>
+       <li><b>Education</b> (pursuing and passing on knowledge, technology, and information)</li>
+       <li><b>Industry</b> (pursuing the creation and management of resources, providing goods, services)</li>
        <li><b>Morality</b> (pursuing justice, caring for others, engaging in religious or spiritual practices)</li>
        <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
        <li><b>Self-expression</b> (culture, making and consuming art, music, sports)</li>
@@ -257,8 +257,8 @@ const instructionsOther = {
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-     <li><b>Industry</b> (creating and managing resources, providing goods, services)</li>
-     <li><b>Knowledge</b> (pursuing truth, science, technology)</li>
+     <li><b>Education</b> (pursuing and passing on knowledge, technology, and information)</li>
+     <li><b>Industry</b> (pursuing the creation and management of resources, providing goods, services)</li>
      <li><b>Morality</b> (pursuing justice, caring for others, engaging in religious or spiritual practices)</li>
      <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
      <li><b>Self-expression</b> (culture, making and consuming art, music, sports)</li>
@@ -313,8 +313,8 @@ const pieChartTrial = {
   <div style="text-align: center; margin-bottom: 5px;">
       <b>Adjust the amount of each of the following pursuits:</b>
       <ul style="text-align: left; font-size: 14px; margin-top: 5px;">
-      <li><b>Industry</b> (creating and managing resources, providing goods, services)</li>
-      <li><b>Knowledge</b> (pursuing truth, science, technology)</li>
+      <li><b>Education</b> (pursuing and passing on knowledge, technology, and information)</li>
+      <li><b>Industry</b> (pursuing the creation and management of resources, providing goods, services)</li>
       <li><b>Morality</b> (pursuing justice, caring for others, engaging in religious or spiritual practices)</li>
       <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
       <li><b>Self-expression</b> (culture, making and consuming art, music, sports)</li>
@@ -326,9 +326,9 @@ const pieChartTrial = {
     <canvas id="pieChart"></canvas>
   </div>
   <div id="inputContainer" style="width: 400px; margin: 0 auto; text-align: left;">
-    <label for="cat1">Industry:</label>
+    <label for="cat1">Education:</label>
     <input type="number" id="cat1" value="0" min="0" max="100"><br>
-    <label for="cat2">Knowledge:</label>
+    <label for="cat2">Industry:</label>
     <input type="number" id="cat2" value="0" min="0" max="100"><br>
     <label for="cat3">Morality:</label>
     <input type="number" id="cat3" value="0" min="0" max="100"><br>
@@ -348,7 +348,7 @@ const pieChartTrial = {
     var pieChart = new Chart(ctx, {
       type: 'pie',
       data: {
-        labels: ['Industry','Knowledge', 'Morality', 'Pleasures', 'Self-expression'],
+        labels: ['Education','Industry', 'Morality', 'Pleasures', 'Self-expression'],
         datasets: [{
           data: [0, 0, 0, 0, 0],
           backgroundColor: ['red', 'blue', 'green', 'yellow', 'orange']
