@@ -197,7 +197,7 @@ const instructionsSelf = {
 
     `<p style="text-align: left;">
     You will see a pie chart like the one below and be asked to edit it so that it matches how you think a person should ideally divide up these pursuits in their life. 
-    <p style="text-align: left;"> In the example below, all of the pursuits are weighted 
+    <p style="text-align: left;"> Here is an example:</p> 
     exactly equally.</p> 
     </p>
     <img src="images/piegroups.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 30%;">`,
@@ -265,8 +265,7 @@ const instructionsOther = {
     You will see a pie chart like the one below and be asked to edit it so that it matches how you think people in an ideal 
     society should divide up these pursuits. 
     </p>
-    <p style="text-align: left;"> In the example below, all of the pursuits are weighted 
-    exactly equally.</p> 
+    <p style="text-align: left;"> Here is an example:</p> 
  
     <img src="images/piegroups.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 30%;">`,
 
