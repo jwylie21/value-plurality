@@ -62,6 +62,15 @@ var disagree_scale = [
   '7 = Strongly agree'
 ];
 
+
+var rule_scale = [
+  '1 = None at all', 
+  '2', 
+  '3', 
+  '4', 
+  '5 = A great deal'
+];
+
 // ENTER FULLSCREEN //
 const enterFullscreen = {
   type: jsPsychFullscreen,
@@ -187,11 +196,9 @@ const instructionsSelf = {
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-       <li><b>Education</b> (pursuing and passing on knowledge, technology, and information)</li>
-       <li><b>Industry</b> (pursuing the creation and management of resources, providing goods, services)</li>
-       <li><b>Morality</b> (pursuing justice, caring for others, engaging in religious or spiritual practices)</li>
-       <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
-       <li><b>Self-expression</b> (culture, making and consuming art, music, sports)</li>
+       <li><b>Information</b> (reading and doing research, pursuing and passing on technology, thinking critically and examining ones own beliefs, feeling curious and noticing patterns in the world)</li>
+       <li><b>Morality</b> (upholding values like fairness and compassion, pursuing justice and caring for others, adhering to traditions or principles, feeling for others and noticing right and wrong in the world)</li>
+       <li><b>Expression</b> (participating in cultural events like art, music or sports, engaging in creative activities, cultivating a sense of taste or style, feeling inspired and noticing beauty in the world)</li>
      </ul>
      </p>`,
 
@@ -257,11 +264,9 @@ const instructionsOther = {
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-     <li><b>Education</b> (pursuing and passing on knowledge, technology, and information)</li>
-     <li><b>Industry</b> (pursuing the creation and management of resources, providing goods, services)</li>
-     <li><b>Morality</b> (pursuing justice, caring for others, engaging in religious or spiritual practices)</li>
-     <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
-     <li><b>Self-expression</b> (culture, making and consuming art, music, sports)</li>
+       <li><b>Information</b> (reading and doing research, pursuing and passing on technology, thinking critically and examining ones own beliefs, feeling curious and noticing patterns in the world)</li>
+       <li><b>Morality</b> (upholding values like fairness and compassion, pursuing justice and caring for others, adhering to traditions or principles, feeling for others and noticing right and wrong in the world)</li>
+       <li><b>Expression</b> (participating in cultural events like art, music or sports, engaging in creative activities, cultivating a sense of taste or style, feeling inspired and noticing beauty in the world)</li>
      </ul>
      </p>`,
 
@@ -302,10 +307,30 @@ const instructionsOther = {
 let proportions = {
   cat1: 0,
   cat2: 0,
-  cat3: 0,
-  cat4: 0,
-  cat5: 0
+  cat3: 0
 };
+
+// Categories and their corresponding labels
+const categories = [
+  { id: 'cat1', label: 'Information' },
+  { id: 'cat2', label: 'Morality' },
+  { id: 'cat3', label: 'Expression' }
+];
+
+// Function to shuffle the categories
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// Shuffle the categories
+const shuffledCategories = shuffle(categories);
+
+// Store the order of the labels
+const labelOrder = shuffledCategories.map(cat => cat.label);
 
 const pieChartTrial = {
   type: jsPsychHtmlKeyboardResponse,
@@ -313,34 +338,25 @@ const pieChartTrial = {
   <div style="text-align: center; margin-bottom: 5px;">
       <b>Adjust the amount of each of the following pursuits:</b>
       <ul style="text-align: left; font-size: 14px; margin-top: 5px;">
-      <li><b>Education</b> (pursuing and passing on knowledge, technology, and information)</li>
-      <li><b>Industry</b> (pursuing the creation and management of resources, providing goods, services)</li>
-      <li><b>Morality</b> (pursuing justice, caring for others, engaging in religious or spiritual practices)</li>
-      <li><b>Pleasures</b> (pursuing enjoyment, play, leisure in life)</li>
-      <li><b>Self-expression</b> (culture, making and consuming art, music, sports)</li>
+       <li><b>Information</b> (reading and doing research, pursuing and passing on technology, thinking critically and examining ones own beliefs, feeling curious and noticing patterns in the world)</li>
+       <li><b>Morality</b> (upholding values like fairness and compassion, pursuing justice and caring for others, adhering to traditions or principles, feeling for others and noticing right and wrong in the world)</li>
+       <li><b>Expression</b> (participating in cultural events like art, music or sports, engaging in creative activities, cultivating a sense of taste or style, feeling inspired and noticing beauty in the world)</li>
       </ul> 
-    </p>
-  </div>
+    </div>
 
-  <div id="pieChartContainer" style="width: 400px; height: 400px; margin: 0 auto;">
-    <canvas id="pieChart"></canvas>
-  </div>
-  <div id="inputContainer" style="width: 400px; margin: 0 auto; text-align: left;">
-    <label for="cat1">Education:</label>
-    <input type="number" id="cat1" value="0" min="0" max="100"><br>
-    <label for="cat2">Industry:</label>
-    <input type="number" id="cat2" value="0" min="0" max="100"><br>
-    <label for="cat3">Morality:</label>
-    <input type="number" id="cat3" value="0" min="0" max="100"><br>
-    <label for="cat4">Pleasures:</label>
-    <input type="number" id="cat4" value="0" min="0" max="100"><br>
-    <label for="cat5">Self-expression:</label>
-    <input type="number" id="cat5" value="0" min="0" max="100"><br>
-  </div>
-  <p></p>
-  <p id="error-message" style="color: red;"></p>
-  <p><i>The piechart will update when the values <b>equal 100</b>.</i></p>
-  <p>Press the <b>space bar</b> when you are done adjusting the proportions to continue.</p>
+    <div id="pieChartContainer" style="width: 400px; height: 400px; margin: 0 auto;">
+      <canvas id="pieChart"></canvas>
+    </div>
+    <div id="inputContainer" style="width: 400px; margin: 0 auto; text-align: left;">
+      ${shuffledCategories.map(cat => `
+        <label for="${cat.id}">${cat.label}:</label>
+        <input type="number" id="${cat.id}" value="0" min="0" max="100"><br>
+      `).join('')}
+    </div>
+    <p></p>
+    <p id="error-message" style="color: red;"></p>
+    <p><i>The piechart will update when the values <b>equal 100</b>.</i></p>
+    <p>Press the <b>space bar</b> when you are done adjusting the proportions to continue.</p>
   `,
   choices: [' '],
   on_load: function() {
@@ -348,10 +364,10 @@ const pieChartTrial = {
     var pieChart = new Chart(ctx, {
       type: 'pie',
       data: {
-        labels: ['Education','Industry', 'Morality', 'Pleasures', 'Self-expression'],
+        labels: ['Information','Morality', 'Expression'],
         datasets: [{
-          data: [0, 0, 0, 0, 0],
-          backgroundColor: ['red', 'blue', 'green', 'yellow', 'orange']
+          data: [0, 0, 0],
+          backgroundColor: ['#101278', '#C52233', '#F7EE7F'] // Updated with hex codes
         }]
       },
       options: {
@@ -361,13 +377,8 @@ const pieChartTrial = {
     });
 
     function updateChart() {
-      var data = [
-        parseInt(document.getElementById('cat1').value),
-        parseInt(document.getElementById('cat2').value),
-        parseInt(document.getElementById('cat3').value),
-        parseInt(document.getElementById('cat4').value),
-        parseInt(document.getElementById('cat5').value)
-      ];
+      var data = shuffledCategories.map(cat => 
+        parseInt(document.getElementById(cat.id).value));
 
       var total = data.reduce((a, b) => a + b, 0);
 
@@ -377,11 +388,9 @@ const pieChartTrial = {
         document.getElementById('error-message').innerText = '';
         // Store the values in the global variable
         proportions = {
-          cat1: data[0],
-          cat2: data[1],
-          cat3: data[2],
-          cat4: data[3],
-          cat5: data[4]
+          cat1: data[shuffledCategories.findIndex(cat => cat.id === 'cat1')],
+          cat2: data[shuffledCategories.findIndex(cat => cat.id === 'cat2')],
+          cat3: data[shuffledCategories.findIndex(cat => cat.id === 'cat3')]
         };
       } else {
         document.getElementById('error-message').innerText = 'Total proportion must be exactly 100.';
@@ -393,10 +402,12 @@ const pieChartTrial = {
     });
   },
   on_finish: function(data) {
-    jsPsych.data.addDataToLastTrial({ proportions: proportions });
+    jsPsych.data.addDataToLastTrial({
+      proportions: proportions,
+      labelOrder: labelOrder
+    });
   }
 };
-
 
 // Add the pie chart trial to the timeline based on the condition
 if (pluralCondition === 'self') {
@@ -428,6 +439,36 @@ var explain = {
 
 timeline.push(explain);
 
+// rule breaking questions
+
+var rulebreak = {
+  type: jsPsychSurveyLikert,
+  questions: [
+    {prompt: "How much rule breaking is required to truly pursue <b>information</b>?", name: 'ruleknowledge', labels: rule_scale},
+    {prompt: "How much rule breaking is required to truly pursue <b>morality</b>?", name: 'rulemorality', labels: rule_scale},
+    {prompt: "How much rule breaking is required to truly pursue <b>expression</b>?", name: 'ruleexpression', labels: rule_scale},
+  ],
+  preamble:"For each of the following, Please rate how much you believe breaking rules is necessary for someone to truly pursue each of the values below.",
+  randomize_question_order: true,
+  required: true,
+  on_finish: function(data) {
+    let rulebreakData = data.response;
+
+    rulebreakData = {
+      rule_knowledge: rulebreakData['ruleknowledge'],
+      rule_morality: rulebreakData['rulemorality'],
+      rule_expression: rulebreakData['ruleexpression']
+    };
+
+    jsPsych.data
+      .getDataByTimelineNode(jsPsych.getCurrentTimelineNodeID())
+      .addToAll(rulebreakData);
+  }
+};
+
+timeline.push(rulebreak);
+
+
 // other questions
 var whichone = {
   type: jsPsychSurveyMultiChoice,
@@ -435,14 +476,14 @@ var whichone = {
     {
       prompt: "If you had to choose, which of the pursuits do you think is most important to being human?", 
       name: 'human', 
-      options: ['Industry','Knowledge',  'Morality', 'Pleasures', 'Self-expression' ], 
+      options: ['Information', 'Morality', 'Expression'], 
       required: true,
       horizontal: true
     }, 
     {
       prompt: "In your life now, which of the pursuits would you say YOU most pursue in your life?", 
       name: 'youvalue', 
-      options: ['Industry','Knowledge',  'Morality', 'Pleasures', 'Self-expression' ], 
+      options: ['Information',  'Morality', 'Expression' ], 
       required: true,
       horizontal: true,
     },
@@ -450,7 +491,7 @@ var whichone = {
     {
       prompt: "Which of the pursuits should YOU most pursue in your life?", 
       name: 'shouldvalue', 
-      options: ['Industry','Knowledge',  'Morality', 'Pleasures', 'Self-expression' ], 
+      options: ['Information',  'Morality', 'Expression' ], 
       required: true,
       horizontal: true
     },
@@ -458,7 +499,7 @@ var whichone = {
     {
       prompt: "Which of the pursuits should OTHERS spend most time pursuing in their lives?", 
       name: 'othersshould', 
-      options: ['Self-expression', 'Pleasures', 'Morality', 'Knowledge', 'Industry'], 
+      options: ['Information',  'Morality', 'Expression' ], 
       required: true,
       horizontal: true
     }
@@ -484,11 +525,9 @@ timeline.push(whichone);
 var ourmfq = {
   type: jsPsychSurveyLikert,
   questions: [
-    {prompt: "Industry", name: 'Industry1', labels: likert_scale},
-    {prompt: "Knowledge", name: 'Knowledge1', labels: likert_scale},
+    {prompt: "Information", name: 'Knowledge1', labels: likert_scale},
     {prompt: "Morality", name: 'Morality1', labels: likert_scale},
-    {prompt: "Pleasures", name: 'Pleasures1', labels: likert_scale},
-    {prompt: "Self-expression", name: 'Self-expression1', labels: likert_scale},
+    {prompt: "Expression", name: 'Self-expression1', labels: likert_scale}
   ],
   preamble:"In this section, please rate each item on how important it would be to you when trying to decide if a pursuit was valuable or not.",
   randomize_question_order: true,
@@ -497,10 +536,8 @@ var ourmfq = {
     let mfqData = data.response;
 
     mfqData = {
-      industry_importance: mfqData['Industry1'],
       knowledge_importance: mfqData['Knowledge1'],
       morality_importance: mfqData['Morality1'],
-      pleasures_importance: mfqData['Pleasures1'],
       self_expression_importance: mfqData['Self-expression1']
     };
 
@@ -515,11 +552,9 @@ timeline.push(ourmfq);
 var fallapart = {
   type: jsPsychSurveyLikert,
   questions: [
-    {prompt: "If too many people pursue <b>industry</b> society will fall apart", name: 'Industry2', labels: disagree_scale},
-    {prompt: "If too many people pursue <b>knowledge</b> society will fall apart", name: 'Knowledge2', labels: disagree_scale},
+    {prompt: "If too many people pursue <b>information</b> society will fall apart", name: 'Knowledge2', labels: disagree_scale},
     {prompt: "If too many people pursue <b>morality</b> society will fall apart", name: 'Morality2', labels: disagree_scale},
-    {prompt: "If too many people pursue <b>pleasures</b> society will fall apart", name: 'Pleasures2', labels: disagree_scale},
-    {prompt: "If too many people pursue <b>self-expression</b> society will fall apart", name: 'Self-expression2', labels: disagree_scale},
+    {prompt: "If too many people pursue <b>expression</b> society will fall apart", name: 'Self-expression2', labels: disagree_scale},
   ],
   preamble:"For each of the following, please rate how much you agree or disagree with the statement",
   randomize_question_order: true,
@@ -528,10 +563,8 @@ var fallapart = {
     let fallapartData = data.response;
 
     fallapartData = {
-      industry_fallapart: fallapartData['Industry2'],
       knowledge_fallapart: fallapartData['Knowledge2'],
       morality_fallapart: fallapartData['Morality2'],
-      pleasures_fallapart: fallapartData['Pleasures2'],
       self_expression_fallapart: fallapartData['Self-expression2']
     };
 
