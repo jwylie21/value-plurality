@@ -891,7 +891,7 @@ const save_data = {
        </p>`
      );
      setTimeout(function () {
-       window.location.href = "https://app.prolific.com/submissions/complete?cc=CB1L4B7S"; //this is updated as of june11
+       window.location.href = "https://app.prolific.com/submissions/complete?cc=C122ISJJ"; //this is updated as of june19
      }, 5000)
    }
  };
