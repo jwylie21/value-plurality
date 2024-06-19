@@ -244,7 +244,7 @@ const instructionsOther = {
      </p>`,
 
     `<p style="text-align: left;">
-     Imagine this circle represents all the time people in a society have over the course of their life:
+     Imagine this circle represents all the time people in a society have over the course of their lives:
 
      </p>
      <img src="images/piealone.jpg" style="display: block; margin: 0 auto; width: 50%;">
@@ -257,7 +257,7 @@ const instructionsOther = {
      <img src="images/piealone2.jpg" style="display: block; margin: 0 auto; width: 30%;">
      
      <p style="text-align: left;">
-     In a society, its possible that some people dedicate themselves to some pursuits, while others dedicate themselves to other pursuits. 
+     In a society, it is possible that some people dedicate themselves to some pursuits, while others dedicate themselves to other pursuits. 
      We want to know how you think people in an ideal society should divide up these pursuits. 
      </p>
 
