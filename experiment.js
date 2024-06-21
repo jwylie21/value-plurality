@@ -71,6 +71,15 @@ var rule_scale = [
   '5 = A great deal'
 ];
 
+
+var true_scale = [
+  '1 = None at all', 
+  '2', 
+  '3', 
+  '4', 
+  '5 = A great deal'
+];
+
 // ENTER FULLSCREEN //
 const enterFullscreen = {
   type: jsPsychFullscreen,
@@ -196,9 +205,9 @@ const instructionsSelf = {
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-       <li><b>Information</b> (reading and doing research, pursuing and passing on technology, thinking critically and examining ones own beliefs, feeling curious and noticing patterns in the world)</li>
-       <li><b>Morality</b> (upholding values like fairness and compassion, pursuing justice and caring for others, adhering to traditions or principles, feeling for others and noticing right and wrong in the world)</li>
        <li><b>Expression</b> (participating in cultural events like art, music or sports, engaging in creative activities, cultivating a sense of taste or style, feeling inspired and noticing beauty in the world)</li>
+       <li><b>Learning</b> (seeking new information through taking courses, reading, and engaging in discussions, thinking critically and experimenting with new ideas, feeling curious and noticing patterns in the world)</li>
+       <li><b>Morality</b> (upholding values like fairness and compassion, pursuing justice and caring for others, adhering to traditions or principles, feeling for others and noticing right and wrong in the world)</li>
      </ul>
      </p>`,
 
@@ -264,9 +273,9 @@ const instructionsOther = {
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-       <li><b>Information</b> (reading and doing research, pursuing and passing on technology, thinking critically and examining ones own beliefs, feeling curious and noticing patterns in the world)</li>
-       <li><b>Morality</b> (upholding values like fairness and compassion, pursuing justice and caring for others, adhering to traditions or principles, feeling for others and noticing right and wrong in the world)</li>
        <li><b>Expression</b> (participating in cultural events like art, music or sports, engaging in creative activities, cultivating a sense of taste or style, feeling inspired and noticing beauty in the world)</li>
+       <li><b>Learning</b> (seeking new information through taking courses, reading, and engaging in discussions, thinking critically and experimenting with new ideas, feeling curious and noticing patterns in the world)</li>
+       <li><b>Morality</b> (upholding values like fairness and compassion, pursuing justice and caring for others, adhering to traditions or principles, feeling for others and noticing right and wrong in the world)</li>
      </ul>
      </p>`,
 
@@ -312,7 +321,7 @@ let proportions = {
 
 // Categories and their corresponding labels and colors
 const categories = [
-  { id: 'cat1', label: 'Information', color: '#101273' },
+  { id: 'cat1', label: 'Learning', color: '#101273' },
   { id: 'cat2', label: 'Morality', color: '#F7EE7F' },
   { id: 'cat3', label: 'Expression', color: '#C52233' }
 ];
@@ -338,9 +347,9 @@ const pieChartTrial = {
   <div style="text-align: center; margin-bottom: 5px;">
       <b>Adjust the amount of each of the following pursuits:</b>
       <ul style="text-align: left; font-size: 14px; margin-top: 5px;">
-       <li><b>Information</b> (reading and doing research, pursuing and passing on technology, thinking critically and examining ones own beliefs, feeling curious and noticing patterns in the world)</li>
-       <li><b>Morality</b> (upholding values like fairness and compassion, pursuing justice and caring for others, adhering to traditions or principles, feeling for others and noticing right and wrong in the world)</li>
        <li><b>Expression</b> (participating in cultural events like art, music or sports, engaging in creative activities, cultivating a sense of taste or style, feeling inspired and noticing beauty in the world)</li>
+       <li><b>Learning</b> (seeking new information through taking courses, reading, and engaging in discussions, thinking critically and experimenting with new ideas, feeling curious and noticing patterns in the world)</li>
+       <li><b>Morality</b> (upholding values like fairness and compassion, pursuing justice and caring for others, adhering to traditions or principles, feeling for others and noticing right and wrong in the world)</li>
       </ul> 
     </div>
 
@@ -448,7 +457,7 @@ var rulebreak = {
     {prompt: "How much rule breaking is required to truly pursue <b>morality</b>?", name: 'rulemorality', labels: rule_scale},
     {prompt: "How much rule breaking is required to truly pursue <b>expression</b>?", name: 'ruleexpression', labels: rule_scale},
   ],
-  preamble:"For each of the following, Please rate how much you believe breaking rules is necessary for someone to truly pursue each of the values below.",
+  preamble:"For each of the following, please rate how much you believe breaking rules is necessary for someone to truly pursue each of the values below.",
   randomize_question_order: true,
   required: true,
   on_finish: function(data) {
@@ -468,22 +477,43 @@ var rulebreak = {
 
 timeline.push(rulebreak);
 
+// true self questions
+
+var trueself = {
+  type: jsPsychSurveyLikert,
+  questions: [
+    {prompt: "How true to yourself do you need to be to pursue <b>learning</b>?", name: 'trueknowledge', labels: true_scale},
+    {prompt: "How true to yourself do you need to be to pursue <b>morality</b>?", name: 'truemorality', labels: true_scale},
+    {prompt: "How true to yourself do you need to be to pursue <b>expression</b>?", name: 'trueexpression', labels: true_scale},
+  ],
+  preamble:"For each of the following, please rate how much you believe being true to who you are deep down is necessary for someone to truly pursue each of the values below.",
+  randomize_question_order: true,
+  required: true,
+  on_finish: function(data) {
+    let trueselfData = data.response;
+
+    trueselfData = {
+      true_knowledge: trueselfData['trueknowledge'],
+      true_morality: trueselfData['truemorality'],
+      true_expression: trueselfData['trueexpression']
+    };
+
+    jsPsych.data
+      .getDataByTimelineNode(jsPsych.getCurrentTimelineNodeID())
+      .addToAll(trueselfData);
+  }
+};
+
+timeline.push(trueself);
 
 // other questions
 var whichone = {
   type: jsPsychSurveyMultiChoice,
   questions: [
     {
-      prompt: "If you had to choose, which of the pursuits do you think is most important to being human?", 
-      name: 'human', 
-      options: ['Information', 'Morality', 'Expression'], 
-      required: true,
-      horizontal: true
-    }, 
-    {
       prompt: "In your life now, which of the pursuits would you say YOU most pursue in your life?", 
       name: 'youvalue', 
-      options: ['Information',  'Morality', 'Expression' ], 
+      options: ['Learning',  'Morality', 'Expression' ], 
       required: true,
       horizontal: true,
     },
@@ -491,7 +521,7 @@ var whichone = {
     {
       prompt: "Which of the pursuits should YOU most pursue in your life?", 
       name: 'shouldvalue', 
-      options: ['Information',  'Morality', 'Expression' ], 
+      options: ['Learning',  'Morality', 'Expression' ], 
       required: true,
       horizontal: true
     },
@@ -499,7 +529,7 @@ var whichone = {
     {
       prompt: "Which of the pursuits should OTHERS spend most time pursuing in their lives?", 
       name: 'othersshould', 
-      options: ['Information',  'Morality', 'Expression' ], 
+      options: ['Learning',  'Morality', 'Expression' ], 
       required: true,
       horizontal: true
     }
@@ -508,7 +538,6 @@ var whichone = {
     let whichoneData = data.response;
 
     whichoneData = {
-      human: whichoneData['human'],
       youvalue: whichoneData['youvalue'],
       shouldvalue: whichoneData['shouldvalue'],
       othersshould: whichoneData['othersshould']
@@ -525,7 +554,7 @@ timeline.push(whichone);
 var ourmfq = {
   type: jsPsychSurveyLikert,
   questions: [
-    {prompt: "Information", name: 'Knowledge1', labels: likert_scale},
+    {prompt: "Learning", name: 'Knowledge1', labels: likert_scale},
     {prompt: "Morality", name: 'Morality1', labels: likert_scale},
     {prompt: "Expression", name: 'Self-expression1', labels: likert_scale}
   ],
@@ -552,7 +581,7 @@ timeline.push(ourmfq);
 var fallapart = {
   type: jsPsychSurveyLikert,
   questions: [
-    {prompt: "If too many people pursue <b>information</b> society will fall apart", name: 'Knowledge2', labels: disagree_scale},
+    {prompt: "If too many people pursue <b>learning</b> society will fall apart", name: 'Knowledge2', labels: disagree_scale},
     {prompt: "If too many people pursue <b>morality</b> society will fall apart", name: 'Morality2', labels: disagree_scale},
     {prompt: "If too many people pursue <b>expression</b> society will fall apart", name: 'Self-expression2', labels: disagree_scale},
   ],
