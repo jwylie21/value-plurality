@@ -80,6 +80,17 @@ var true_scale = [
   '5 = A great deal'
 ];
 
+// attention check
+const attention_scale = [
+  "1 = No, I didnt pay close attention. You should not use my data",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7 = Yes, I paid full attention. You should use my data",
+];
+
 // ENTER FULLSCREEN //
 const enterFullscreen = {
   type: jsPsychFullscreen,
@@ -855,6 +866,31 @@ const politicsQuestions = {
 };
 
 timeline.push(politicsQuestions);
+
+// attention check question
+
+var attentioncheck = {
+  type: jsPsychSurveyLikert,
+  questions: [
+    {prompt: "Did you pay attention while completing this study?", name: 'attentioncheck', labels: attention_scale},
+  ],
+  preamble:"Please answer the following question honestly. Your response will NOT affect whether or not you get paid.",
+  randomize_question_order: true,
+  required: true,
+  on_finish: function(data) {
+    let attentionData = data.response;
+
+    attentionData = {
+      attention_check: attentionData['attentioncheck']
+    };
+
+    jsPsych.data
+      .getDataByTimelineNode(jsPsych.getCurrentTimelineNodeID())
+      .addToAll(attentionData);
+  }
+};
+
+timeline.push(attentioncheck);
 
 // Comments
 const feedback = {
