@@ -73,11 +73,11 @@ var rule_scale = [
 
 
 var true_scale = [
-  '1 = None at all', 
+  '1 = Not at all', 
   '2', 
   '3', 
   '4', 
-  '5 = A great deal'
+  '5 = Completely'
 ];
 
 // attention check
@@ -216,20 +216,22 @@ const instructionsSelf = {
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-       <li><b>Expression</b> (participating in cultural events like art, music or sports, engaging in creative activities, cultivating a sense of taste or style, feeling inspired and noticing beauty in the world)</li>
-       <li><b>Learning</b> (seeking new information through taking courses, reading, and engaging in discussions, thinking critically and experimenting with new ideas, feeling curious and noticing patterns in the world)</li>
-       <li><b>Morality</b> (upholding values like fairness and compassion, pursuing justice and caring for others, adhering to traditions or principles, feeling for others and noticing right and wrong in the world)</li>
+       <li><b>Aesthetic & Intellectual Expression</b> (pursuing and passing on knowledge, making and seeing art, seeking truth, playing or listening to music, perfecting a sport)</li>
+       <li><b>Civic Life</b> (pursuing political action, participating in collective decision-making, managing shared resources, engaging with your political community)</li>
+       <li><b>Morality</b> (pursuing justice, promoting fairness, protecting others from risks and threats, participating in religious or spiritual practices)</li>
+       <li><b>Play & Leisure</b> (pursuing enjoyment for its own sake, engaging in play, having hobbies and recreational activities, taking time for leisure)</li>
+       <li><b>Relationships</b> (pursuing connection and interaction with other people and animals, feeling close to others, maintaining ties with friends and family)</li>
      </ul>
      </p>`,
 
    `<p style="text-align: left;">
     You will see a pie chart like the one below and be asked to edit it so that it matches how you think a person should ideally divide up these pursuits in their life. 
     </p>
-    <p style="text-align: left;"> Here is an example where only two values are selected, Information and Expression, and the other one is set to zero:</p> 
+    <p style="text-align: left;"> Here is an example where only two values are selected, Civic Life and Relationships, and the others are set to zero:</p> 
  
     <img src="images/piegroups.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 30%;">`,
   
-    `<p style="text-align: left;"> Here is an example where one pursuit, Information, is given a large value and the others weighted equally:</p> 
+    `<p style="text-align: left;"> Here is an example where one pursuit, Relationships, is given a large value and the others weighted equally:</p> 
  
     <img src="images/piegroups2.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 40%;">`,
 
@@ -284,20 +286,23 @@ const instructionsOther = {
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-       <li><b>Expression</b> (participating in cultural events like art, music or sports, engaging in creative activities, cultivating a sense of taste or style, feeling inspired and noticing beauty in the world)</li>
-       <li><b>Learning</b> (seeking new information through taking courses, reading, and engaging in discussions, thinking critically and experimenting with new ideas, feeling curious and noticing patterns in the world)</li>
-       <li><b>Morality</b> (upholding values like fairness and compassion, pursuing justice and caring for others, adhering to traditions or principles, feeling for others and noticing right and wrong in the world)</li>
+       <li><b>Aesthetic & Intellectual Expression</b> (pursuing and passing on knowledge, making and seeing art, seeking truth, playing or listening to music, perfecting a sport)</li>
+       <li><b>Civic Life</b> (pursuing political action, participating in collective decision-making, managing shared resources, engaging with your political community)</li>
+       <li><b>Morality</b> (pursuing justice, promoting fairness, protecting others from risks and threats, participating in religious or spiritual practices)</li>
+       <li><b>Play & Leisure</b> (pursuing enjoyment for its own sake, engaging in play, having hobbies and recreational activities, taking time for leisure)</li>
+       <li><b>Relationships</b> (pursuing connection and interaction with other people and animals, feeling close to others, maintaining ties with friends and family)</li>
      </ul>
      </p>`,
 
      `<p style="text-align: left;">
     You will see a pie chart like the one below and be asked to edit it so that it matches how you think people in an ideal society should divide up these pursuits.
     </p>
-    <p style="text-align: left;"> Here is an example where only two values are selected, Information and Expression, and the other one is set to zero:</p> 
+    
+    <p style="text-align: left;"> Here is an example where only two values are selected, Civic Life and Relationships, and the others are set to zero:</p> 
  
     <img src="images/piegroups.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 30%;">`,
-
-    `<p style="text-align: left;"> Here is an example where one pursuit, Information, is given a large value and the others weighted equally:</p> 
+  
+    `<p style="text-align: left;"> Here is an example where one pursuit, Relationships, is given a large value and the others weighted equally:</p> 
  
     <img src="images/piegroups2.jpg" alt="Example Pie Chart" style="display: block; margin: 0 auto; width: 40%;">`,
 
@@ -327,14 +332,18 @@ const instructionsOther = {
 let proportions = {
   cat1: 0,
   cat2: 0,
-  cat3: 0
+  cat3: 0,
+  cat4: 0,
+  cat5: 0
 };
 
 // Categories and their corresponding labels and colors
 const categories = [
-  { id: 'cat1', label: 'Learning', color: '#101273' },
-  { id: 'cat2', label: 'Morality', color: '#F7EE7F' },
-  { id: 'cat3', label: 'Expression', color: '#C52233' }
+  { id: 'cat1', label: 'Aesthetic & Intellectual Expression', color: '#DF857A' },
+  { id: 'cat2', label: 'Civic Life', color: '#8094A6' },
+  { id: 'cat3', label: 'Morality', color: '#E7B268' },
+  { id: 'cat4', label: 'Play & Leisure', color: '#936D7D' },
+  { id: 'cat5', label: 'Relationships', color: '#1B3022' }
 ];
 
 // Function to shuffle the categories
@@ -358,9 +367,11 @@ const pieChartTrial = {
   <div style="text-align: center; margin-bottom: 5px;">
       <b>Adjust the amount of each of the following pursuits:</b>
       <ul style="text-align: left; font-size: 14px; margin-top: 5px;">
-       <li><b>Expression</b> (participating in cultural events like art, music or sports, engaging in creative activities, cultivating a sense of taste or style, feeling inspired and noticing beauty in the world)</li>
-       <li><b>Learning</b> (seeking new information through taking courses, reading, and engaging in discussions, thinking critically and experimenting with new ideas, feeling curious and noticing patterns in the world)</li>
-       <li><b>Morality</b> (upholding values like fairness and compassion, pursuing justice and caring for others, adhering to traditions or principles, feeling for others and noticing right and wrong in the world)</li>
+       <li><b>Aesthetic & Intellectual Expression</b> (pursuing and passing on knowledge, making and seeing art, seeking truth, playing or listening to music, perfecting a sport)</li>
+       <li><b>Civic Life</b> (pursuing political action, participating in collective decision-making, managing shared resources, engaging with your political community)</li>
+       <li><b>Morality</b> (pursuing justice, promoting fairness, protecting others from risks and threats, participating in religious or spiritual practices)</li>
+       <li><b>Play & Leisure</b> (pursuing enjoyment for its own sake, engaging in play, having hobbies and recreational activities, taking time for leisure)</li>
+       <li><b>Relationships</b> (pursuing connection and interaction with other people and animals, feeling close to others, maintaining ties with friends and family)</li>
       </ul> 
     </div>
 
@@ -386,7 +397,7 @@ const pieChartTrial = {
       data: {
         labels: shuffledCategories.map(cat => cat.label),
         datasets: [{
-          data: [0, 0, 0],
+          data: [0, 0, 0, 0, 0],
           backgroundColor: shuffledCategories.map(cat => cat.color) // Updated with hex codes
         }]
       },
@@ -410,7 +421,9 @@ const pieChartTrial = {
         proportions = {
           cat1: data[shuffledCategories.findIndex(cat => cat.id === 'cat1')],
           cat2: data[shuffledCategories.findIndex(cat => cat.id === 'cat2')],
-          cat3: data[shuffledCategories.findIndex(cat => cat.id === 'cat3')]
+          cat3: data[shuffledCategories.findIndex(cat => cat.id === 'cat3')],
+          cat4: data[shuffledCategories.findIndex(cat => cat.id === 'cat4')],
+          cat5: data[shuffledCategories.findIndex(cat => cat.id === 'cat5')]
         };
       } else {
         document.getElementById('error-message').innerText = 'Total proportion must be exactly 100.';
@@ -442,7 +455,7 @@ if (pluralCondition === 'self') {
 var explain = {
   type: jsPsychSurveyText,
   questions: [
-    {prompt: 'Why did you complete the pie chart in the way you did? Are there any pursuits you think should have been included?', name: 'pieexplain', rows: 5}  
+    {prompt: 'Were there any pursuits you think should have been included?', name: 'pieexplain', rows: 5}  
   ],
   on_finish: function (data) {
     let explainData = data.response;
@@ -464,20 +477,23 @@ timeline.push(explain);
 var rulebreak = {
   type: jsPsychSurveyLikert,
   questions: [
-    {prompt: "How much rule breaking is required to truly pursue <b>information</b>?", name: 'ruleknowledge', labels: rule_scale},
-    {prompt: "How much rule breaking is required to truly pursue <b>morality</b>?", name: 'rulemorality', labels: rule_scale},
-    {prompt: "How much rule breaking is required to truly pursue <b>expression</b>?", name: 'ruleexpression', labels: rule_scale},
+    {prompt: "How much rule breaking is required to truly pursue <b>aesthetic & intellectual expression</b>?", name: 'ruleexpression', labels: rule_scale, required: true},
+    {prompt: "How much rule breaking is required to truly pursue <b>morality</b>?", name: 'rulemorality', labels: rule_scale, required: true},
+    {prompt: "How much rule breaking is required to truly pursue <b>play & leisure</b>?", name: 'ruleplay', labels: rule_scale, required: true},
+    {prompt: "How much rule breaking is required to truly pursue <b>relationships</b>?", name: 'rulerelationship', labels: rule_scale, required: true},
+    {prompt: "How much rule breaking is required to truly pursue <b>civic life</b>?", name: 'rulecivic', labels: rule_scale, required: true}
   ],
   preamble:"For each of the following, please rate how much you believe breaking rules is necessary for someone to truly pursue each of the values below.",
   randomize_question_order: true,
-  required: true,
   on_finish: function(data) {
     let rulebreakData = data.response;
 
     rulebreakData = {
-      rule_knowledge: rulebreakData['ruleknowledge'],
+      rule_expression: rulebreakData['ruleexpression'],
       rule_morality: rulebreakData['rulemorality'],
-      rule_expression: rulebreakData['ruleexpression']
+      rule_play: rulebreakData['ruleplay'],
+      rule_relationship: rulebreakData['rulerelationship'],
+      rule_civic: rulebreakData['rulecivic']
     };
 
     jsPsych.data
@@ -493,20 +509,23 @@ timeline.push(rulebreak);
 var trueself = {
   type: jsPsychSurveyLikert,
   questions: [
-    {prompt: "How true to yourself do you need to be to pursue <b>learning</b>?", name: 'trueknowledge', labels: true_scale},
-    {prompt: "How true to yourself do you need to be to pursue <b>morality</b>?", name: 'truemorality', labels: true_scale},
-    {prompt: "How true to yourself do you need to be to pursue <b>expression</b>?", name: 'trueexpression', labels: true_scale},
+    {prompt: "How true to yourself do you need to be to pursue <b>aesthetic & intellectual expression</b>?", name: 'trueexpression', labels: true_scale, required: true},
+    {prompt: "How true to yourself do you need to be to pursue <b>morality</b>?", name: 'truemorality', labels: true_scale, required: true},
+    {prompt: "How true to yourself do you need to be to pursue <b>play & leisure</b>?", name: 'trueplay', labels: true_scale, required: true},
+    {prompt: "How true to yourself do you need to be to pursue <b>relationships</b>?", name: 'truerelationship', labels: true_scale, required: true},
+    {prompt: "How true to yourself do you need to be to pursue <b>civic life</b>?", name: 'truecivic', labels: true_scale, required: true}
   ],
   preamble:"For each of the following, please rate how much you believe being true to who you are deep down is necessary for someone to truly pursue each of the values below.",
   randomize_question_order: true,
-  required: true,
   on_finish: function(data) {
     let trueselfData = data.response;
 
     trueselfData = {
-      true_knowledge: trueselfData['trueknowledge'],
+      true_expression: trueselfData['trueexpression'],
       true_morality: trueselfData['truemorality'],
-      true_expression: trueselfData['trueexpression']
+      true_play: trueselfData['trueplay'],
+      true_relationship: trueselfData['truerelationship'],
+      true_civic: trueselfData['truecivic']
     };
 
     jsPsych.data
@@ -524,7 +543,7 @@ var whichone = {
     {
       prompt: "In your life now, which of the pursuits would you say YOU most pursue in your life?", 
       name: 'youvalue', 
-      options: ['Learning',  'Morality', 'Expression' ], 
+      options: ['Aesthetic & Intellectual Expression', 'Civic Life', 'Morality', 'Play & Leisure', 'Relationships' ], 
       required: true,
       horizontal: true,
     },
@@ -532,7 +551,7 @@ var whichone = {
     {
       prompt: "Which of the pursuits should YOU most pursue in your life?", 
       name: 'shouldvalue', 
-      options: ['Learning',  'Morality', 'Expression' ], 
+      options: ['Aesthetic & Intellectual Expression', 'Civic Life', 'Morality', 'Play & Leisure', 'Relationships' ], 
       required: true,
       horizontal: true
     },
@@ -540,7 +559,7 @@ var whichone = {
     {
       prompt: "Which of the pursuits should OTHERS spend most time pursuing in their lives?", 
       name: 'othersshould', 
-      options: ['Learning',  'Morality', 'Expression' ], 
+      options: ['Aesthetic & Intellectual Expression', 'Civic Life', 'Morality', 'Play & Leisure', 'Relationships' ], 
       required: true,
       horizontal: true
     }
@@ -565,9 +584,12 @@ timeline.push(whichone);
 var ourmfq = {
   type: jsPsychSurveyLikert,
   questions: [
-    {prompt: "Learning", name: 'Knowledge1', labels: likert_scale},
+    {prompt: "Aesthetic & Intellectual Expression", name: 'Self-expression1', labels: likert_scale},
     {prompt: "Morality", name: 'Morality1', labels: likert_scale},
-    {prompt: "Expression", name: 'Self-expression1', labels: likert_scale}
+    {prompt: "Civic Life", name: 'Civic1', labels: likert_scale},
+    {prompt: "Play & Leisure", name: 'Play1', labels: likert_scale},
+    {prompt: "Relationships", name: 'Relationship1', labels: likert_scale}
+
   ],
   preamble:"In this section, please rate each item on how important it would be to you when trying to decide if a pursuit was valuable or not.",
   randomize_question_order: true,
@@ -576,9 +598,11 @@ var ourmfq = {
     let mfqData = data.response;
 
     mfqData = {
-      knowledge_importance: mfqData['Knowledge1'],
+      self_expression_importance: mfqData['Self-expression1'],
       morality_importance: mfqData['Morality1'],
-      self_expression_importance: mfqData['Self-expression1']
+      civic_importance: mfqData['Civic1'],
+      play_importance: mfqData['Play1'],
+      relationship_importance: mfqData['Relationship1']
     };
 
     jsPsych.data
@@ -592,9 +616,11 @@ timeline.push(ourmfq);
 var fallapart = {
   type: jsPsychSurveyLikert,
   questions: [
-    {prompt: "If too many people pursue <b>learning</b> society will fall apart", name: 'Knowledge2', labels: disagree_scale},
+    {prompt: "If too many people pursue <b>aesthetic & intellectual expression</b> society will fall apart", name: 'Self-expression2', labels: disagree_scale},
     {prompt: "If too many people pursue <b>morality</b> society will fall apart", name: 'Morality2', labels: disagree_scale},
-    {prompt: "If too many people pursue <b>expression</b> society will fall apart", name: 'Self-expression2', labels: disagree_scale},
+    {prompt: "If too many people pursue <b>civic life</b> society will fall apart", name: 'Civic2', labels: disagree_scale},
+    {prompt: "If too many people pursue <b>play & leisure</b> society will fall apart", name: 'Play2', labels: disagree_scale},
+    {prompt: "If too many people pursue <b>relationships</b> society will fall apart", name: 'Relationship2', labels: disagree_scale}
   ],
   preamble:"For each of the following, please rate how much you agree or disagree with the statement",
   randomize_question_order: true,
@@ -603,9 +629,11 @@ var fallapart = {
     let fallapartData = data.response;
 
     fallapartData = {
-      knowledge_fallapart: fallapartData['Knowledge2'],
-      morality_fallapart: fallapartData['Morality2'],
-      self_expression_fallapart: fallapartData['Self-expression2']
+      self_expression_fallapart: mfqData['Self-expression2'],
+      morality_fallapart: mfqData['Morality2'],
+      civic_fallapart: mfqData['Civic2'],
+      play_fallapart: mfqData['Play2'],
+      relationship_fallapart: mfqData['Relationship2']
     };
 
     jsPsych.data
