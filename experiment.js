@@ -129,7 +129,7 @@ const consentForm = {
             
             </p>
             <p style="text-align: left;">
-            This experiment will take about 10 minutes. 
+            This experiment will take less than 10 minutes. 
             Participants do not receive compensation if they withdraw prior to completion 
             of the experiment. We do not anticipate any possible risks. 
             However, we will be presenting you with material that has emotional 
@@ -216,8 +216,8 @@ const instructionsSelf = {
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-       <li><b>Aesthetic & Intellectual Expression</b> (pursuing and passing on knowledge, making and seeing art, seeking truth, playing or listening to music, perfecting a sport)</li>
        <li><b>Civic Life</b> (pursuing political action, participating in collective decision-making, managing shared resources, engaging with your political community)</li>
+       <li><b>Aesthetic & Intellectual Expression</b> (pursuing and passing on knowledge, making and seeing art, seeking truth, playing or listening to music, perfecting a sport)</li>
        <li><b>Morality</b> (pursuing justice, promoting fairness, protecting others from risks and threats, participating in religious or spiritual practices)</li>
        <li><b>Play & Leisure</b> (pursuing enjoyment for its own sake, engaging in play, having hobbies and recreational activities, taking time for leisure)</li>
        <li><b>Relationships</b> (pursuing connection and interaction with other people and animals, feeling close to others, maintaining ties with friends and family)</li>
@@ -286,8 +286,8 @@ const instructionsOther = {
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-       <li><b>Aesthetic & Intellectual Expression</b> (pursuing and passing on knowledge, making and seeing art, seeking truth, playing or listening to music, perfecting a sport)</li>
        <li><b>Civic Life</b> (pursuing political action, participating in collective decision-making, managing shared resources, engaging with your political community)</li>
+       <li><b>Aesthetic & Intellectual Expression</b> (pursuing and passing on knowledge, making and seeing art, seeking truth, playing or listening to music, perfecting a sport)</li>
        <li><b>Morality</b> (pursuing justice, promoting fairness, protecting others from risks and threats, participating in religious or spiritual practices)</li>
        <li><b>Play & Leisure</b> (pursuing enjoyment for its own sake, engaging in play, having hobbies and recreational activities, taking time for leisure)</li>
        <li><b>Relationships</b> (pursuing connection and interaction with other people and animals, feeling close to others, maintaining ties with friends and family)</li>
@@ -367,8 +367,8 @@ const pieChartTrial = {
   <div style="text-align: center; margin-bottom: 5px;">
       <b>Adjust the amount of each of the following pursuits:</b>
       <ul style="text-align: left; font-size: 14px; margin-top: 5px;">
-       <li><b>Aesthetic & Intellectual Expression</b> (pursuing and passing on knowledge, making and seeing art, seeking truth, playing or listening to music, perfecting a sport)</li>
        <li><b>Civic Life</b> (pursuing political action, participating in collective decision-making, managing shared resources, engaging with your political community)</li>
+       <li><b>Aesthetic & Intellectual Expression</b> (pursuing and passing on knowledge, making and seeing art, seeking truth, playing or listening to music, perfecting a sport)</li>
        <li><b>Morality</b> (pursuing justice, promoting fairness, protecting others from risks and threats, participating in religious or spiritual practices)</li>
        <li><b>Play & Leisure</b> (pursuing enjoyment for its own sake, engaging in play, having hobbies and recreational activities, taking time for leisure)</li>
        <li><b>Relationships</b> (pursuing connection and interaction with other people and animals, feeling close to others, maintaining ties with friends and family)</li>
@@ -629,11 +629,11 @@ var fallapart = {
     let fallapartData = data.response;
 
     fallapartData = {
-      self_expression_fallapart: mfqData['Self-expression2'],
-      morality_fallapart: mfqData['Morality2'],
-      civic_fallapart: mfqData['Civic2'],
-      play_fallapart: mfqData['Play2'],
-      relationship_fallapart: mfqData['Relationship2']
+      self_expression_fallapart: fallapartData['Self-expression2'],
+      morality_fallapart: fallapartData['Morality2'],
+      civic_fallapart: fallapartData['Civic2'],
+      play_fallapart: fallapartData['Play2'],
+      relationship_fallapart: fallapartData['Relationship2']
     };
 
     jsPsych.data
@@ -984,7 +984,7 @@ const save_data = {
        </p>`
      );
      setTimeout(function () {
-       window.location.href = "https://app.prolific.com/submissions/complete?cc=C122ISJJ"; //this is updated as of june19
+       window.location.href = "https://app.prolific.com/submissions/complete?cc=C1GLZ8GG"; //this is updated as of july11
      }, 5000)
    }
  };
