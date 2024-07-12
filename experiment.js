@@ -216,7 +216,7 @@ const instructionsSelf = {
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-       <li><b>Civic Life</b> (pursuing political action, participating in collective decision-making, managing shared resources, engaging with your political community)</li>
+       <li><b>Civic & Economic Life</b> (pursuing political action, participating in collective decision-making, managing resources, goods and services, pursuing career, engaging with your political community)</li>
        <li><b>Aesthetic & Intellectual Expression</b> (pursuing and passing on knowledge, making and seeing art, seeking truth, playing or listening to music, perfecting a sport)</li>
        <li><b>Morality</b> (pursuing justice, promoting fairness, protecting others from risks and threats, participating in religious or spiritual practices)</li>
        <li><b>Play & Leisure</b> (pursuing enjoyment for its own sake, engaging in play, having hobbies and recreational activities, taking time for leisure)</li>
@@ -984,7 +984,7 @@ const save_data = {
        </p>`
      );
      setTimeout(function () {
-       window.location.href = "https://app.prolific.com/submissions/complete?cc=C7MJSWIW"; //this is updated as of july11
+       window.location.href = "https://app.prolific.com/submissions/complete?cc=C1GLZ8GG"; //this is updated as of july11
      }, 5000)
    }
  };
