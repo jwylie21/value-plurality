@@ -194,7 +194,7 @@ const instructionsSelf = {
   pages: [
     `<h2><strong>Instructions</strong></h2>
      <p style="text-align: left;">
-       Welcome to the experiment! In this study, we will ask you about the kinds of things people can do with their lives. 
+       Welcome to the experiment! In this study, we will ask you about the kinds of things people can pursue in their lives. 
      </p>`,
 
     `<p style="text-align: left;">
@@ -216,7 +216,7 @@ const instructionsSelf = {
      <p style="text-align: left;">
      These pursuits include:
      <ul style="text-align: left;">
-       <li><b>Civic & Economic Life</b> (pursuing political action, participating in collective decision-making, managing resources, goods and services, pursuing career, engaging with your political community)</li>
+       <li><b>Civic Life</b> (pursuing political action, participating in collective decision-making, managing shared resources, engaging with your political community)</li>
        <li><b>Aesthetic & Intellectual Expression</b> (pursuing and passing on knowledge, making and seeing art, seeking truth, playing or listening to music, perfecting a sport)</li>
        <li><b>Morality</b> (pursuing justice, promoting fairness, protecting others from risks and threats, participating in religious or spiritual practices)</li>
        <li><b>Play & Leisure</b> (pursuing enjoyment for its own sake, engaging in play, having hobbies and recreational activities, taking time for leisure)</li>
@@ -262,7 +262,7 @@ const instructionsOther = {
   pages: [
     `<h2><strong>Instructions</strong></h2>
      <p style="text-align: left;">
-      Welcome to the experiment! In this study, we will ask you about the kinds of things people can do with their lives. 
+      Welcome to the experiment! In this study, we will ask you about the kinds of things people can pursue in their lives. 
      </p>`,
 
     `<p style="text-align: left;">
