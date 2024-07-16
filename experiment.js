@@ -586,11 +586,11 @@ timeline.push(whichone);
 var ourmfq = {
   type: jsPsychSurveyLikert,
   questions: [
-    {prompt: "Aesthetic & Intellectual Expression", name: 'Self-expression1', labels: likert_scale},
-    {prompt: "Morality", name: 'Morality1', labels: likert_scale},
-    {prompt: "Civic Life", name: 'Civic1', labels: likert_scale},
-    {prompt: "Play & Leisure", name: 'Play1', labels: likert_scale},
-    {prompt: "Relationships", name: 'Relationship1', labels: likert_scale}
+    {prompt: "Aesthetic & Intellectual Expression", name: 'Self-expression1', labels: likert_scale, required: true},
+    {prompt: "Morality", name: 'Morality1', labels: likert_scale, required: true},
+    {prompt: "Civic Life", name: 'Civic1', labels: likert_scale, required: true},
+    {prompt: "Play & Leisure", name: 'Play1', labels: likert_scale, required: true},
+    {prompt: "Relationships", name: 'Relationship1', labels: likert_scale, required: true}
 
   ],
   preamble:"In this section, please rate each item on how important it would be to you when trying to decide if a pursuit was valuable or not.",
@@ -618,11 +618,11 @@ timeline.push(ourmfq);
 var fallapart = {
   type: jsPsychSurveyLikert,
   questions: [
-    {prompt: "If too many people pursue <b>aesthetic & intellectual expression</b> society will fall apart", name: 'Self-expression2', labels: disagree_scale},
-    {prompt: "If too many people pursue <b>morality</b> society will fall apart", name: 'Morality2', labels: disagree_scale},
-    {prompt: "If too many people pursue <b>civic life</b> society will fall apart", name: 'Civic2', labels: disagree_scale},
-    {prompt: "If too many people pursue <b>play & leisure</b> society will fall apart", name: 'Play2', labels: disagree_scale},
-    {prompt: "If too many people pursue <b>relationships</b> society will fall apart", name: 'Relationship2', labels: disagree_scale}
+    {prompt: "If too many people pursue <b>aesthetic & intellectual expression</b> society will fall apart", name: 'Self-expression2', labels: disagree_scale, required: true},
+    {prompt: "If too many people pursue <b>morality</b> society will fall apart", name: 'Morality2', labels: disagree_scale, required: true},
+    {prompt: "If too many people pursue <b>civic life</b> society will fall apart", name: 'Civic2', labels: disagree_scale, required: true},
+    {prompt: "If too many people pursue <b>play & leisure</b> society will fall apart", name: 'Play2', labels: disagree_scale, required: true},
+    {prompt: "If too many people pursue <b>relationships</b> society will fall apart", name: 'Relationship2', labels: disagree_scale, required: true}
   ],
   preamble:"For each of the following, please rate how much you agree or disagree with the statement",
   randomize_question_order: true,
@@ -902,7 +902,7 @@ timeline.push(politicsQuestions);
 var attentioncheck = {
   type: jsPsychSurveyLikert,
   questions: [
-    {prompt: "Did you pay attention while completing this study?", name: 'attentioncheck', labels: attention_scale},
+    {prompt: "Did you pay attention while completing this study?", name: 'attentioncheck', labels: attention_scale, required: true},
   ],
   preamble:"Please answer the following question honestly. Your response will NOT affect whether or not you get paid.",
   randomize_question_order: true,
