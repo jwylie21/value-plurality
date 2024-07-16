@@ -472,7 +472,7 @@ var explain = {
   }
 }
 
-timeline.push(explain);
+//timeline.push(explain); //remove this question 
 
 // rule breaking questions
 
