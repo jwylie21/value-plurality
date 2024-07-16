@@ -73,11 +73,13 @@ var rule_scale = [
 
 
 var true_scale = [
-  '1 = Not at all', 
+  '1 = Completely disagree', 
   '2', 
   '3', 
-  '4', 
-  '5 = Completely'
+  '4 = Neither agree nor disagree', 
+  '5', 
+  '6', 
+  '7 = Completely agree'
 ];
 
 // attention check
@@ -509,13 +511,13 @@ timeline.push(rulebreak);
 var trueself = {
   type: jsPsychSurveyLikert,
   questions: [
-    {prompt: "How true to yourself do you need to be to pursue <b>aesthetic & intellectual expression</b>?", name: 'trueexpression', labels: true_scale, required: true},
-    {prompt: "How true to yourself do you need to be to pursue <b>morality</b>?", name: 'truemorality', labels: true_scale, required: true},
-    {prompt: "How true to yourself do you need to be to pursue <b>play & leisure</b>?", name: 'trueplay', labels: true_scale, required: true},
-    {prompt: "How true to yourself do you need to be to pursue <b>relationships</b>?", name: 'truerelationship', labels: true_scale, required: true},
-    {prompt: "How true to yourself do you need to be to pursue <b>civic life</b>?", name: 'truecivic', labels: true_scale, required: true}
+    {prompt: "To be excellent at <b>aesthetic & intellectual expression</b>, one has to be true to who they are deep down.", name: 'trueexpression', labels: true_scale, required: true},
+    {prompt: "To be excellent at <b>morality</b>, one has to be true to who they are deep down.", name: 'truemorality', labels: true_scale, required: true},
+    {prompt: "To be excellent at <b>play & leisure</b>, one has to be true to who they are deep down.", name: 'trueplay', labels: true_scale, required: true},
+    {prompt: "To be excellent at <b>relationships</b>, one has to be true to who they are deep down.", name: 'truerelationship', labels: true_scale, required: true},
+    {prompt: "To be excellent at <b>civic life</b>, one has to be true to who they are deep down.", name: 'truecivic', labels: true_scale, required: true}
   ],
-  preamble:"For each of the following, please rate how much you believe being true to who you are deep down is necessary for someone to truly pursue each of the values below.",
+  preamble:"Please rate how much you agree or disagree with each of the following statements:",
   randomize_question_order: true,
   on_finish: function(data) {
     let trueselfData = data.response;
@@ -984,7 +986,7 @@ const save_data = {
        </p>`
      );
      setTimeout(function () {
-       window.location.href = "https://app.prolific.com/submissions/complete?cc=C1GLZ8GG"; //this is updated as of july11
+       window.location.href = "https://app.prolific.com/submissions/complete?cc=C14TE6JM"; //this is updated as of july15 for study 1
      }, 5000)
    }
  };
